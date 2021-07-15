@@ -26,6 +26,16 @@
                     active-class="active">
                 MonsterAttack
             </router-link>
+            <router-link :to="{ name: 'BoardListPage' }"
+                    class="nav-link"
+                    active-class="active">
+                BoardListPage
+            </router-link>
+            <router-link :to="{ name: 'MemberListPage' }"
+                    class="nav-link"
+                    active-class="active">
+                MemberListPage
+            </router-link>
         </div>
     </div>
 </template>
