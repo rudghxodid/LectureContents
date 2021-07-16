@@ -3,11 +3,15 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Test from '../views/Test.vue'
 import Todo from '../views/Todo.vue'
-
 import Homework from '../views/Homework.vue'
-//board
+
+// board
 import BoardListPage from '@/views/BoardListPage.vue'
 import BoardRegisterPage from '@/views/BoardRegisterPage.vue'
+import BoardReadPage from '@/views/BoardReadPage.vue'
+
+// game
+import GameMemberRegisterPage from '@/views/GameMemberRegisterPage.vue'
 
 Vue.use(VueRouter)
 
@@ -28,30 +32,40 @@ const routes = [
     component: Todo
   },
   {
-    path: '/board',
-    name: 'BoardListPage',
-    components: {
-       default: BoardListPage
-    } 
-  },
-  {
     path: '/homework',
     name: 'Homework',
     component: Homework
   },
   {
+    path: '/board',
+    name: 'BoardListPage',
+    components: {
+      default: BoardListPage
+    }
+  },
+  {
     path: '/board/create',
     name: 'BoardRegisterPage',
     components: {
-       default: BoardRegisterPage
-    } 
+      default: BoardRegisterPage
+    }
+  },
+  {
+    path: '/board/:boardNo',
+    name: 'BoardReadPage',
+    components: {
+      default: BoardReadPage
+    },
+    props: {
+      default: true
+    }
   },
   {
     path: '/member/create',
-    name: 'MemberRegisterPage',
+    name: 'GameMemberRegisterPage',
     components: {
-       default: MemberRegisterPage
-    } 
+      default: GameMemberRegisterPage
+    }
   }
 ]
 

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div align="center">
         <h2>회원</h2>
         <member-register-form @submit="onMemberSubmit"/>
@@ -35,4 +35,4 @@ export default {
     }
 
 }
-</script>
+</script> -->

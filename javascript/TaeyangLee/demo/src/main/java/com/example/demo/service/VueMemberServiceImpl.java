@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Member;
 import com.example.demo.repository.MemberRepository;
+import com.example.demo.repository.VueMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.List;
 public class VueMemberServiceImpl implements VueMemberService {
 
     @Autowired
-    private MemberRepository repository;
+    private VueMemberRepository repository;
 
     @Override
     public void register(Member board) throws Exception {

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
-@RequestMapping("/vueMember")
+@RequestMapping("/vuemember")
 @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
 
 public class VueMemberController {

@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <div>
+        <div id="header">
             <router-link :to="{ name: 'Home' }"
                     class="nav-link"
                     active-class="active">
@@ -11,7 +11,7 @@
                     active-class="active">
                 Test
             </router-link>
-             <router-link :to="{ name: 'Todo' }"
+            <router-link :to="{ name: 'Todo' }"
                     class="nav-link"
                     active-class="active">
                 Todo
@@ -21,30 +21,24 @@
                     active-class="active">
                 Homework
             </router-link>
-             <router-link :to="{ name: 'MonsterAttack' }"
-                    class="nav-link"
-                    active-class="active">
-                MonsterAttack
-            </router-link>
             <router-link :to="{ name: 'BoardListPage' }"
                     class="nav-link"
                     active-class="active">
                 BoardListPage
             </router-link>
-            <router-link :to="{ name: 'MemberListPage' }"
+            <router-link :to="{ name: 'GameMemberRegisterPage' }"
                     class="nav-link"
                     active-class="active">
-                MemberListPage
+                GameMemberRegisterPage
             </router-link>
         </div>
     </div>
 </template>
 
 <script>
-// @ is an alias to /src
-export default {
-  name: 'Home',
-  components: {
+  export default {
+    name: 'Home',
+    components: {
+    },
   }
-}
 </script>

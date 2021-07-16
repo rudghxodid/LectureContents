@@ -1,10 +1,10 @@
-<template>
+ <!-- <template>
     <div id='member'>
         <h2>회원가입</h2>
         <router-link :to="{ name: 'MemberRegisterPage' }">
             회원가입합시다
         </router-link>
-        <!--<board-list/> -->
+        <!--<board-list/> 
     </div>
 </template>
 
@@ -20,4 +20,4 @@ export default {
      
     }
 }
-</script>
+</script>  -->
