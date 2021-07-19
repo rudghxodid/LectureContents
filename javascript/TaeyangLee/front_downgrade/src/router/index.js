@@ -9,6 +9,7 @@ import Homework from '../views/Homework.vue'
 import BoardListPage from '@/views/BoardListPage.vue'
 import BoardRegisterPage from '@/views/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/BoardReadPage.vue'
+import BoardModifyPage from '@/views/BoardModifyPage.vue'
 
 // game
 import GameMemberRegisterPage from '@/views/GameMemberRegisterPage.vue'
@@ -58,7 +59,17 @@ const routes = [
     },
     props: {
       default: true
-    }
+     }
+    },
+    {
+      path: '/board/:boardNo/edit',
+      name: 'BoardModifyPage',
+      components: {
+        default: BoardModifyPage
+      },
+      props: {
+        default: true
+      }
   },
   {
     path: '/member/create',
