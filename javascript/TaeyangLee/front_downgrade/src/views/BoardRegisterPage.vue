@@ -22,11 +22,11 @@ export default {
             axios.post('http://localhost:7777/vueboard/register',{ title, writer, content })
             .then(res => {
                 alert('등록 성공!' + res)
-               /* this.$router.push({
-                    name: 'BoardReadPage',
-                    params: {boardNo: res.data.boardNo.toString() }
+                this.$router.push({
+                    name: 'BoardListPage'
+                    //params: {boardNo: res.data.boardNo.toString() }
                 })
-                */
+                
             })
             .catch(res => {
                 alert(res.response.data.message)
