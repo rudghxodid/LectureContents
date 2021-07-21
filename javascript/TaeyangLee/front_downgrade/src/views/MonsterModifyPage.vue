@@ -28,12 +28,12 @@ export default {
         ...mapActions(['fetchMonster']),
         onSubmit (payload) {
             const { monster_name, monster_hp } = payload
-            axios.put(`http://localhost:7777/vuegame/${this.monsterNo}`, {  monster_name, monster_hp })
+            axios.put(`http://localhost:7777/vuegame/${this.monsterNo}`, { monster_name, monster_hp })
                     .then(res => {
                         alert('수정 성공!')
                         this.$router.push({
                             name: 'MonsterReadPage',
-                            params: { monsterNo: res.data.productNo.toString() }
+                            params: { monsterNo: res.data.monsterNo.toString() }
                         })
                     })
                     .catch(err => {

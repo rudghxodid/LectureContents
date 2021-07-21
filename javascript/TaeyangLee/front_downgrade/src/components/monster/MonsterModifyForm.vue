@@ -41,8 +41,6 @@ export default {
         return {
             monster_name: '',
             monster_hp: ''
-          
-
         }
     },
     methods: {
