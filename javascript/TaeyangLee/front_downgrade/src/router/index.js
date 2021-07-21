@@ -20,6 +20,14 @@ import Concave from '@/views/Concave.vue'
 // product
 import ProductListPage from '@/views/ProductListPage.vue'
 import ProductRegisterPage from '@/views/ProductRegisterPage.vue'
+import ProductReadPage from '@/views/ProductReadPage.vue'
+import ProductModifyPage from '@/views/ProductModifyPage.vue'
+
+//게임
+import MonsterListPage from '@/views/MonsterListPage.vue'
+import MonsterRegisterPage from '@/views/MonsterRegisterPage.vue'
+import MonsterReadPage from '@/views/MonsterReadPage.vue'
+import MonsterModifyPage from '@/views/MonsterModifyPage.vue'
 
 Vue.use(VueRouter)
 
@@ -107,6 +115,63 @@ const routes = [
       default: ProductRegisterPage
     }
   },
+  {
+    path: '/product/:productNo',
+    name: 'ProductReadPage',
+    components: {
+      default: ProductReadPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/product/:productNo/edit',
+    name: 'ProductModifyPage',
+    components: {
+      default: ProductModifyPage
+    },
+    props: {
+     
+      default: true
+    }
+  },
+  //몬스터북
+  {
+    path: '/monster',
+    name: 'MonsterListPage',
+    components: {
+      default: MonsterListPage
+    }
+  },
+  {
+    path: '/monster/create',
+    name: 'MonsterRegisterPage',
+    components: {
+      default: MonsterRegisterPage
+    }
+  },
+  {
+    path: '/monster/:monsterNo',
+    name: 'MonsterReadPage',
+    components: {
+      default: MonsterReadPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/monster/:monsterNo/edit',
+    name: 'MonsterModifyPage',
+    components: {
+      default: MonsterModifyPage
+    },
+    props: {
+     
+      default: true
+    }
+  }
 ]
 
 const router = new VueRouter({

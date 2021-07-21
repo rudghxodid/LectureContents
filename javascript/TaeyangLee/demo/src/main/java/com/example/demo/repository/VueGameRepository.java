@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import com.example.demo.entity.Monster;
 import com.example.demo.entity.Product;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,39 +13,36 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public class VueProductRepository {
+public class VueGameRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void create(Product product) throws Exception {
-        String query = "insert into vueproduct (product_name, description, producer, price) values (?, ?, ?, ?)";
+    public void create(Monster monster) throws Exception {
+        String query = "insert into monster (monster_name, monster_hp) values (?, ?)";
 
-        jdbcTemplate.update(query, product.getProduct_name(), product.getDescription(),
-                product.getProducer(), product.getPrice());
+        jdbcTemplate.update(query, monster.getMonster_name(), monster.getMonster_hp());
     }
 
-    public List<Product> list() throws Exception {
+    public List<Monster> list() throws Exception {
 
-        List<Product> results = jdbcTemplate.query(
-                "select product_no, product_name, description, producer, price, regDate from vueproduct " +
-                        "where product_no > 0 order by product_no desc",
+        List<Monster> results = jdbcTemplate.query(
+                "select monsterNo, monster_name, monster_hp from monster " +
+                        "where monsterNo > 0 order by monsterNo desc",
 
-                new RowMapper<Product>() {
+                new RowMapper<Monster>() {
                     @SneakyThrows
                     @Override
-                    public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        Product product = new Product();
+                    public Monster mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Monster monster = new Monster();
 
-                        product.setProductNo(rs.getInt("product_no"));
-                        product.setProduct_name(rs.getString("product_name"));
-                        product.setDescription(rs.getString("description"));
-                        product.setProducer(rs.getString("producer"));
-                        product.setPrice((rs.getInt("price")));
+                        monster.setMonsterNo(rs.getInt("monsterNo"));
+                        monster.setMonster_name(rs.getString("monster_name"));
+                        monster.setMonster_hp(rs.getInt("monster_hp"));
 
-                        product.setRegDate(rs.getDate("regDate"));
 
-                        return product;
+
+                        return monster;
                     }
                 }
         );
@@ -52,38 +50,35 @@ public class VueProductRepository {
         return results;
     }
 
-    public Product read (Integer productNo) throws Exception {
-        List<Product> results = jdbcTemplate.query(
-                "select product_no, product_name, description, producer, price, " +
-                        "regDate from vueproduct where product_no = ?",
-                new RowMapper<Product>() {
+    public Monster read (Integer monsterNo) throws Exception {
+        List<Monster> results = jdbcTemplate.query(
+                "select monsterNo, monster_name, monster_hp " +
+                        "from monster where monsterNo = ?",
+                new RowMapper<Monster>() {
                     @Override
-                    public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        Product product = new Product();
+                    public Monster mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Monster monster = new Monster();
 
-                        product.setProductNo(rs.getInt("product_no"));
-                        product.setProduct_name(rs.getString("product_name"));
-                        product.setDescription(rs.getString("description"));
-                        product.setProducer(rs.getString("producer"));
-                        product.setPrice(rs.getInt("price"));
-                        product.setRegDate(rs.getDate("regDate"));
+                        monster.setMonsterNo(rs.getInt("monsterNo"));
+                        monster.setMonster_name(rs.getString("monster_name"));
+                        monster.setMonster_hp(rs.getInt("monster_hp"));
 
-                        return product;
+                        return  monster;
                     }
-                }, productNo);
+                }, monsterNo);
 
         return results.isEmpty() ? null : results.get(0);
     }
 
 
-    public void delete(Integer productNo) throws Exception {
-        String query = "delete from vueproduct where product_no = ?";
-        jdbcTemplate.update(query, productNo);
+    public void delete(Integer monsterNo) throws Exception {
+        String query = "delete from monster where monsterNo = ?";
+        jdbcTemplate.update(query, monsterNo);
     }
-    public void update(Product product) throws Exception {
-        String query = "update vueproduct set product_name = ?, price = ?, description = ? where product_no = ?";
+    public void update(Monster monster) throws Exception {
+        String query = "update monster set monster_name = ?, monster_hp = ? where monsterNo = ?";
 
-        jdbcTemplate.update(query, product.getProduct_name(),product.getPrice(), product.getDescription(), product.getProductNo());
+        jdbcTemplate.update(query,monster.getMonster_name(),monster.getMonster_hp(),monster.getMonsterNo());
     }
 
 }

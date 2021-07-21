@@ -17,7 +17,11 @@ import {
     FETCH_BOARD,
     // 상품
     FETCH_PRODUCT_LIST,
-    FETCH_PRODUCT
+    FETCH_PRODUCT,
+    //게임
+    FETCH_MONSTER_LIST,
+    FETCH_MONSTER
+
 } from './mutation-types'
 
 import axios from 'axios'
@@ -100,6 +104,19 @@ export default {
         return axios.get(`http://localhost:7777/vueproduct/${productNo}`)
                 .then((res) => {
                     commit(FETCH_PRODUCT, res.data)
+                })
+    },
+    //게임
+    fetchMonsterList ({ commit }) {
+        return axios.get('http://localhost:7777/vuegame/lists')
+                .then((res) => {
+                    commit(FETCH_MONSTER_LIST, res.data)
+                })
+    },
+    fetchMonster ({ commit }, monsterNo) {
+        return axios.get(`http://localhost:7777/vuegame/${monsterNo}`)
+                .then((res) => {
+                    commit(FETCH_MONSTER, res.data)
                 })
     }
 }

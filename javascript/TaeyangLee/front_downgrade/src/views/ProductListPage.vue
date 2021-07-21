@@ -1,5 +1,5 @@
 <template>
-    <div id="board">
+    <div id="product">
         <h2>Vue + Spring + DB 상품 구현</h2>
         <router-link :to="{ name: 'ProductRegisterPage' }">
             상품 등록
