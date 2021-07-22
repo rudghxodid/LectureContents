@@ -10,8 +10,8 @@ import java.util.Date;
 @Setter
 @ToString
 public class Monster {
-    private int monsterNo;
+    private Integer monsterNo;
     private String monster_name;
-    private int monster_hp;
+    private Integer monster_hp;
 
 }

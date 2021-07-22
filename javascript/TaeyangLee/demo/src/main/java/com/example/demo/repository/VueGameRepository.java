@@ -19,7 +19,7 @@ public class VueGameRepository {
     private JdbcTemplate jdbcTemplate;
 
     public void create(Monster monster) throws Exception {
-        String query = "insert into monster (monster_name, monster_hp) values (?, ?)";
+        String query = "insert into monster (name, monster_hp) values (?, ?)";
 
         jdbcTemplate.update(query, monster.getMonster_name(), monster.getMonster_hp());
     }
