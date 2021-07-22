@@ -27,7 +27,7 @@ export default {
     methods: {
         ...mapActions(['fetchMonster']),
         onSubmit (payload) {
-            const { monster_name, monster_hp } = payload
+            const { name, hp, description, } = payload
             axios.put(`http://localhost:7777/vuegame/${this.monsterNo}`, { monster_name, monster_hp })
                     .then(res => {
                         alert('수정 성공!')
