@@ -23,14 +23,19 @@ import ProductRegisterPage from '@/views/ProductRegisterPage.vue'
 import ProductReadPage from '@/views/ProductReadPage.vue'
 import ProductModifyPage from '@/views/ProductModifyPage.vue'
 
-//게임
+// monster
 import MonsterListPage from '@/views/MonsterListPage.vue'
 import MonsterRegisterPage from '@/views/MonsterRegisterPage.vue'
 import MonsterReadPage from '@/views/MonsterReadPage.vue'
 import MonsterModifyPage from '@/views/MonsterModifyPage.vue'
 
-//eventBus
+// EventBus
 import EventBusTestPage from '@/views/EventBusTestPage.vue'
+
+// 던전
+import DungeonListPage from '@/views/DungeonListPage.vue'
+//학생
+import StudentListPage from '@/views/StudentListPage.vue'
 
 Vue.use(VueRouter)
 
@@ -135,11 +140,9 @@ const routes = [
       default: ProductModifyPage
     },
     props: {
-     
       default: true
     }
   },
-  //몬스터북
   {
     path: '/monster',
     name: 'MonsterListPage',
@@ -171,7 +174,6 @@ const routes = [
       default: MonsterModifyPage
     },
     props: {
-     
       default: true
     }
   },
@@ -181,8 +183,21 @@ const routes = [
     components: {
       default: EventBusTestPage
     }
+  },
+  {
+    path: '/dungeon',
+    name: 'DungeonListPage',
+    components: {
+      default: DungeonListPage
+    }
+  },
+  {
+    path: '/student',
+    name: 'StudentListPage',
+    components: {
+      default: StudentListPage
+    }
   }
-  
 ]
 
 const router = new VueRouter({

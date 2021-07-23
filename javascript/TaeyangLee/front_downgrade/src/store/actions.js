@@ -18,10 +18,13 @@ import {
     // 상품
     FETCH_PRODUCT_LIST,
     FETCH_PRODUCT,
-    //게임
+    // 판타지 온라인
     FETCH_MONSTER_LIST,
-    FETCH_MONSTER
-
+    FETCH_MONSTER,
+    // 랜덤 던전
+    ALLOC_RANDOM_DUNGEON,
+    //학생
+    FETCH_STUDENT_LIST
 } from './mutation-types'
 
 import axios from 'axios'
@@ -106,17 +109,30 @@ export default {
                     commit(FETCH_PRODUCT, res.data)
                 })
     },
-    //게임
+    // 판타지 온라인
     fetchMonsterList ({ commit }) {
-        return axios.get('http://localhost:7777/vuegame/lists')
+        return axios.get('http://localhost:7777/vuemonster/lists')
                 .then((res) => {
                     commit(FETCH_MONSTER_LIST, res.data)
                 })
     },
     fetchMonster ({ commit }, monsterNo) {
-        return axios.get(`http://localhost:7777/vuegame/${monsterNo}`)
+        return axios.get(`http://localhost:7777/vuemonster/${monsterNo}`)
                 .then((res) => {
                     commit(FETCH_MONSTER, res.data)
+                })
+    },
+    // 랜덤 던전
+    randomDungeonList ({ commit }) {
+        return axios.get('http://localhost:7777/vuedungeon/randomAlloc')
+                .then((res) => {
+                    commit(ALLOC_RANDOM_DUNGEON, res.data)
+                })
+    },
+    fetchStudentList ({commit}) {
+        return axios.get(`http://localhost:7777/vuestudent/${studentNo}`)
+                .then((res) => {
+                    commit(FETCH_STUDENT_LIST, res.data)
                 })
     }
 }

@@ -41,15 +41,25 @@
                     active-class="active">
                 ProductListPage
             </router-link>
-             <router-link :to="{ name: 'MonsterListPage' }"
+            <router-link :to="{ name: 'MonsterListPage' }"
                     class="nav-link"
                     active-class="active">
-                MonsterListPage
+                몬스터 도감
             </router-link>
-           <router-link :to="{ name: 'EventBusTestPage' }"
+            <router-link :to="{ name: 'EventBusTestPage' }"
                     class="nav-link"
                     active-class="active">
                 EventBus 테스트
+            </router-link>
+            <router-link :to="{ name: 'DungeonListPage' }"
+                    class="nav-link"
+                    active-class="active">
+                Dungeon 테스트
+            </router-link>
+            <router-link :to="{ name: 'StudentListPage' }"
+                    class="nav-link"
+                    active-class="active">
+                StudentListPage
             </router-link>
         </div>
     </div>
