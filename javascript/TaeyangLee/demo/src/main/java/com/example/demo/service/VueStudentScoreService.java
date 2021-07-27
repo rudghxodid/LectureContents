@@ -5,7 +5,7 @@ import com.example.demo.entity.Student;
 
 import java.util.List;
 
-public interface VueStudentService {
-    public List<Student> list() throws Exception;
-}
+public interface VueStudentScoreService {
 
+    public List<Student> getStudentScoreList() throws Exception;
+}

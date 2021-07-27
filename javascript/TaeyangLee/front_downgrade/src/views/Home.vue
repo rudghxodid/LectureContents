@@ -56,10 +56,21 @@
                     active-class="active">
                 Dungeon 테스트
             </router-link>
-            <router-link :to="{ name: 'StudentListPage' }"
+            
+            <router-link :to="{ name: 'OnlyVuePage' }"
                     class="nav-link"
                     active-class="active">
-                StudentListPage
+                OnlyVuePage
+            </router-link>
+             <router-link :to="{ name: 'SpringInterconnectionPage' }"
+                    class="nav-link"
+                    active-class="active">
+                SpringInterconnectionPage
+            </router-link>
+            <router-link :to="{ name: 'ScoreManagerPage' }"
+                    class="nav-link"
+                    active-class="active">
+                성적 관리 페이지
             </router-link>
         </div>
     </div>
@@ -71,4 +82,4 @@
     components: {
     },
   }
-</script>
+</script>   

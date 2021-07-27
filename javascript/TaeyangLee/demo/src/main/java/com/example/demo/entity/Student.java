@@ -11,10 +11,8 @@ import java.util.Date;
 @Setter
 @ToString
 public class Student {
-    private int studentNo;
+    private Integer studentNo;
     private String name;
-    private int age;
-    private String sex;
-    private int score;
+    private Integer score;
     private Date regDate;
 }

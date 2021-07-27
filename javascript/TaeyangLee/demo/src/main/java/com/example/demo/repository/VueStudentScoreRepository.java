@@ -18,20 +18,16 @@ import java.util.List;
 
 @Slf4j
 @Repository
-public class VueStudentRepository {
+public class VueStudentScoreRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Student> list() throws Exception {
-
-        int avg = jdbcTemplate.queryForObject(
-                "select avg(score) from student",
-                Integer.class
-        );
+    public List<Student> getStudentScoreList() throws Exception {
+        log.info("Repository - getStudentScoreList()");
 
         List<Student> results = jdbcTemplate.query(
-                "select studentNo, name, age, sex, score from student " +
-                        "where studentNo > 0 order by studentNo desc",
+                "select student_no, name, score, regDate from vuestudent " +
+                        "where student_no > 0 order by student_no desc",
 
                 new RowMapper<Student>() {
                     @SneakyThrows
@@ -39,14 +35,10 @@ public class VueStudentRepository {
                     public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
                         Student student = new Student();
 
-                        student.setStudentNo(rs.getInt("studentNo"));
+                        student.setStudentNo(rs.getInt("student_no"));
                         student.setName(rs.getString("name"));
-                        student.setAge(rs.getInt("age"));
-                        student.setSex(rs.getString("sex"));
                         student.setScore(rs.getInt("score"));
                         student.setRegDate(rs.getDate("regDate"));
-
-
 
                         return student;
                     }
