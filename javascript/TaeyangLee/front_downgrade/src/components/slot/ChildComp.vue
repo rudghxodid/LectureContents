@@ -23,7 +23,7 @@ export default {
     props: ['ran_car']
 }
 </script>
-
+<!--
 <style scoped>
 .main {
     border: 4px solid blue;
@@ -52,4 +52,4 @@ img {
     bottom: 0px;
     color: white;
 }
-</style>
+</style>-->

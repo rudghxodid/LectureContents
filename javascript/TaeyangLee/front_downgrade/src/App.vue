@@ -1,10 +1,24 @@
 <template>
+<v-app>
   <v-content>
     <router-view/>
-  </v-content>
+</v-content>
+</v-app>
 </template>
 
+<script>
+
+export default {
+  name: 'App'
+ 
+}
+</script>
+
+
 <style>
+
+
+/*
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,4 +36,5 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+*/
 </style>
