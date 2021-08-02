@@ -1,23 +1,15 @@
 <template>
-    <div class="home">
-        <div id="header">
-           
-            <router-link :to="{ name: 'BoardListPage' }"
-                    class="nav-link"
-                    active-class="active">
-                BoardListPage
-            </router-link>
-          
-        </div>
-        
-    </div>
+  <hello-world />
 </template>
 
 <script>
+  import HelloWorld from '../components/HelloWorld'
 
   export default {
-    name: 'Home'
-   
+    name: 'Home',
+
+    components: {
+      HelloWorld,
+    },
   }
-</script>   
-       
+</script>

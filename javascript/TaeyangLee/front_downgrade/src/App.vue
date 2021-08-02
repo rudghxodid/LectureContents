@@ -1,23 +1,22 @@
 <template>
-<v-app>
-  <v-content>
-    <router-view/>
-</v-content>
-</v-app>
+  <v-app>
+    <nav-bar-component/>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-
+import NavBarComponent from './views/NavBarComponent.vue'
+// import VuetifyAllInOneTestPage from './views/VuetifyAllInOneTestPage.vue'
 export default {
+  components: { NavBarComponent },
   name: 'App'
- 
 }
 </script>
 
-
 <style>
-
-
 /*
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
