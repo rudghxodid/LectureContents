@@ -1,24 +1,28 @@
 package com.example.demo.entity;
 
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
 //jpa 사용시필수적인 annatation이 entity
 @Entity
+@Getter
+@Setter
 @ToString
 
-public class JpaMember {
+public class VueMember {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long memberNo;
+    private Integer memberNo;
 
 
 
@@ -28,15 +32,11 @@ public class JpaMember {
     @Column(length = 20, nullable = false)
     private String pw;
 
-    @Column(length = 20, nullable = false)
-    private String regDate;
+    @CreationTimestamp
+    private LocalDateTime createdDate;
 
-    @Builder
-    public JpaMember(String id, String pw, String regDate) {
+    @UpdateTimestamp
+    private LocalDateTime lastModifiedDate;
 
-        this.id = id;
-        this.pw = pw;
-        this.regDate = regDate;
-    }
 
 }

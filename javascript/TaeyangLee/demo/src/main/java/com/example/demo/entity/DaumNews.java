@@ -11,6 +11,7 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
+//jpa 사용시필수적인 annatation이 entity
 @Entity
 @ToString
 public class DaumNews {
@@ -37,10 +38,5 @@ public class DaumNews {
         this.category = category;
         this.title = title;
     }
-
-
-
-
-
 
 }

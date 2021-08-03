@@ -45,16 +45,23 @@ import SpringInterconnectionPage from '@/views/SpringInterconnectionPage.vue'
 
 // 크롤링
 import DaumNewsCrawlerPage from '@/views/DaumNewsCrawlerPage.vue'
-//슬롯
+
+// Slot
 import UnNamedSlotTestPage from '@/views/UnNamedSlotTestPage.vue'
 import NamedSlotTestPage from '@/views/NamedSlotTestPage.vue'
 import ScopedSlotTestPage from '@/views/ScopedSlotTestPage.vue'
 import RecentSlotTestPage from '@/views/RecentSlotTestPage.vue'
-//Materialize
+
+// Materialize
 import MaterializeTestPage from '@/views/MaterializeTestPage.vue'
-//vuetify
 import MaterializeGridTestPage from '@/views/MaterializeGridTestPage.vue'
 import VuetifyAllInOneTestPage from '@/views/VuetifyAllInOneTestPage.vue'
+
+// JPA Test Page
+import VuetifyMemberRegisterPage from '@/views/VuetifyMemberRegisterPage.vue'
+
+import CoverflowTestPage from '@/views/CoverflowTestPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -280,16 +287,26 @@ const routes = [
     }
   },
   {
-    path: '/VuetifyAllInOne',
+    path: '/vuetifyTest',
     name: 'VuetifyAllInOneTestPage',
     components: {
       default: VuetifyAllInOneTestPage
     }
+  },
+  {
+    path: '/vuetifyMemberRegister',
+    name: 'VuetifyMemberRegisterPage',
+    components: {
+      default: VuetifyMemberRegisterPage
+    }
+  },
+  {
+    path: '/coverflowTest',
+    name: 'CoverflowTestPage',
+    components: {
+      default: CoverflowTestPage
+    }
   }
-
-
-  
-  
 ]
 
 const router = new VueRouter({

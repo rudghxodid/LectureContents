@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.entity.Member;
+import com.example.demo.entity.VueMember;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -76,4 +77,7 @@ public class VueMemberRepository {
 
         return results;
     }
+
+
+
 }
