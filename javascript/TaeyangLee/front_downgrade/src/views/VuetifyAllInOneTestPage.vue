@@ -131,8 +131,8 @@
             </v-toolbar-items>
         </v-toolbar>
 
-        <!--
-        <v-navigation-drawer app permanent>
+       
+     <!--   <v-navigation-drawer app permanent>
             <v-list nav dense>
                 <v-list-item-group active-class="deep-purple--text text--accent-4">
                     <v-list-item v-for="link in links" :key="link.name" router :to="link.route">
@@ -145,9 +145,9 @@
                     </v-list-item>
                 </v-list-item-group>
             </v-list>
-        </v-navigation-drawer>
-        -->
-
+        </v-navigation-drawer> -->
+       
+<!--
         <v-toolbar dense dark>
             <v-app-bar-nav-icon @click="nav_drawer = !nav_drawer">
             </v-app-bar-nav-icon>
@@ -160,8 +160,9 @@
                     {{ link.text }}
                 </v-btn>
             </v-toolbar-items>
-        </v-toolbar>
-        <v-navigation-drawer app v-model="nav_drawer" temporary>
+        </v-toolbar>  
+   -->
+     <!-- <v-navigation-drawer app v-model="nav_drawer" temporary>
             <v-list nav dense>
                 <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
                     <v-list-item v-for="link in links" :key="link.name" router :to="link.route">
@@ -174,7 +175,7 @@
                     </v-list-item>
                 </v-list-item-group>
             </v-list>
-        </v-navigation-drawer>
+        </v-navigation-drawer> -->
 
         <div>
             <v-menu offset-y>

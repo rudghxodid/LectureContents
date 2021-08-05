@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>게시물 목록</h3>
+        
         <table border="1">
             <tr>
                 <th align="center" width="100">번호</th>

@@ -62,6 +62,16 @@ import VuetifyMemberRegisterPage from '@/views/VuetifyMemberRegisterPage.vue'
 
 import CoverflowTestPage from '@/views/CoverflowTestPage.vue'
 
+import AwesomeSwiperTestPage from '@/views/AwesomeSwiperTestPage.vue'
+
+//import LikesFacebookPage from '@/views/LikesFacebookPage.vue'
+
+import ImageGalleryTestPage from '@/views/ImageGalleryTestPage.vue'
+
+import CalendarTestPage from '@/views/CalendarTestPage.vue'
+
+import MemberJoinColumnTestPage from '@/views/MemberJoinColumnTestPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -306,7 +316,41 @@ const routes = [
     components: {
       default: CoverflowTestPage
     }
+  },
+  {
+    path: '/awesomeSwiperTest',
+    name: 'AwesomeSwiperTestPage',
+    components: {
+      default: AwesomeSwiperTestPage
+    }
+  },
+ 
+  {
+    path: '/ImageGalleryTestPage',
+    name: 'ImageGalleryTestPage',
+    components: {
+      default: ImageGalleryTestPage
+    }
+  },
+  {
+    path: '/CalendarTestPage',
+    name: 'CalendarTestPage',
+    components: {
+      default: CalendarTestPage
+    }
+  },
+  {
+    path: '/memberJoinColumn',
+    name: 'MemberJoinColumnTestPage',
+    components: {
+      default: MemberJoinColumnTestPage
+    }
   }
+
+  
+
+
+  
 ]
 
 const router = new VueRouter({

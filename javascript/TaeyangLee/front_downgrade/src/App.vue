@@ -10,6 +10,8 @@
 <script>
 import NavBarComponent from './views/NavBarComponent.vue'
 // import VuetifyAllInOneTestPage from './views/VuetifyAllInOneTestPage.vue'
+
+
 export default {
   components: { NavBarComponent },
   name: 'App'
