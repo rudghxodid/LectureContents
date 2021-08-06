@@ -6,8 +6,8 @@ create table vuedungeon(
    regDate timestamp not null default now(),
    primary key(dungeon_no)
 );
-insert into vuedungeon (name, description, monster_amount) values
- ('불타는 대지','끝없이 화염폭풍이 몰아치는 전장 지역', 2);
+insert into test_member (password, user_id) values
+ ('123123', 'test');
 
  insert into vuedungeon (name, description, monster_amount) values
   ('무릉도원','천도과수원', 3);
