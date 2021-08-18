@@ -1,7 +1,7 @@
   
 <template>
     <div>
-        <h3>Vue + Spring 게시물 읽기</h3>
+        <h3>게시물 읽기</h3>
         <table>
             <tr>
                 <td>글번호</td>
@@ -22,6 +22,14 @@
             <tr>
                 <td>본문</td>
                 <td><textarea cols="50" rows="20" :value="board.content" readonly></textarea></td>
+            </tr>
+            <tr>
+                <td>현재모금액</td>
+                <td><input type="text" :value="board.nowfunding" readonly></td>
+                
+                <td>목표금액</td>
+                <td><input type="text" :value="board.funding" readonly></td>
+                
             </tr>
         </table>
     </div>

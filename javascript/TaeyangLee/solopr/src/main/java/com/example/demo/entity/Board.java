@@ -16,6 +16,8 @@ public class Board {
     private String title;
     private String content;
     private String writer;
+    private int funding;
+    private int nowfunding;
     private Date regDate;
 
 

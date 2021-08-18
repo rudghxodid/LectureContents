@@ -21,14 +21,14 @@ public class BoardRepository {
 
         public void create(Board board) throws Exception {
 
-            String query = "insert into board (title, content, writer) values (?, ?, ?)";
+            String query = "insert into board (title, content, writer, nowfunding, funding) values (?, ?, ?, ?, ?)";
 
-            jdbcTemplate.update(query, board.getTitle(), board.getContent(), board.getWriter());
+            jdbcTemplate.update(query, board.getTitle(), board.getContent(), board.getWriter(), board.getFunding(), board.getNowfunding());
         }
     public List<Board> list() throws Exception {
 
         List<Board> results = jdbcTemplate.query(
-                "select board_no, title, content, writer, reg_date from board " +
+                "select board_no, title, content, writer, funding, nowfunding, regDate from board " +
                         "where board_no > 0 order by board_no desc",
 
                 new RowMapper<Board>() {
@@ -42,7 +42,9 @@ public class BoardRepository {
                         board.setTitle(rs.getString("title"));
                         board.setContent(rs.getString("content"));
                         board.setWriter(rs.getString("writer"));
-                        board.setRegDate(rs.getDate("reg_date"));
+                        board.setFunding(rs.getInt("funding"));
+                        board.setNowfunding(rs.getInt("nowfunding"));
+                        board.setRegDate(rs.getDate("regDate"));
 
 
                         return board;
@@ -54,7 +56,7 @@ public class BoardRepository {
     }
     public Board read (Integer boardNo) throws Exception {
         List<Board> results = jdbcTemplate.query(
-                "select board_no, title, content, writer, reg_date from board where board_no = ?",
+                "select board_no, title, content, writer, funding, nowfunding, regDate from board where board_no = ?",
                 new RowMapper<Board>() {
                     @Override
                     public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -64,7 +66,9 @@ public class BoardRepository {
                         board.setTitle(rs.getString("title"));
                         board.setContent(rs.getString("content"));
                         board.setWriter(rs.getString("writer"));
-                        board.setRegDate(rs.getDate("reg_date"));
+                        board.setFunding(rs.getInt("funding"));
+                        board.setNowfunding(rs.getInt("nowfunding"));
+                        board.setRegDate(rs.getDate("regDate"));
 
                         return board;
                     }

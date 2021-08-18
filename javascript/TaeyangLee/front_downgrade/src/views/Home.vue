@@ -151,6 +151,14 @@
                 MemberJoinColumnTestPage
             </router-link>
 
+            <router-link :to="{ name: 'VuetifyMemberLoginPage' }"
+                    class="nav-link"
+                    active-class="active">
+                로그인 테스트
+            </router-link>
+
+          
+
 
             
             

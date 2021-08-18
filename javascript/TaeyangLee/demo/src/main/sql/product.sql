@@ -1,9 +1,10 @@
-create table vueproduct(
-   product_no int not null auto_increment,
-   product_name varchar(200) not null,
-   description text null,
-   producer varchar(50) not null,
-   price int not null,
+create table board(
+   board_no int not null auto_increment,
+   title varchar(50) not null,
+   content text null,
+   writer varchar(50) not null,
+   funding int not null,
+   nowfunding int,
    regDate timestamp not null default now(),
-   primary key(product_no)
+   primary key(board_no)
 );

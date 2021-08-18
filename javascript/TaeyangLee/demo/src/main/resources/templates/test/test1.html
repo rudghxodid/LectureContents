@@ -1,36 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:color="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
-
 <body>
 
+<h3 align="center">kh 리조트 대관 안내</h3>
+<table border="2">
+  <tr bgcolor="#ED4C00">
+    <th align="center" width="20"><font color="white">층</font></th>
+    <th align="center" width="50"><font color="white">객실명</font></th>
+    <th align="center" width="50"><font color="white">정원</font></th>
+    <th align="center" colspan="2" width="200"><font color="white">가격</font></th>
+    <p><font color="red"><strong>리조트 대관 안내</strong></font></p>
+  </tr>
 
-<form action="insert_no" method="post">
+  <tr bgcolor="orange">
+    <th align="center" rowspan="6">2층</th>
+    <th align="center" rowspan="2">사랑방</th>
+    <th align="center" rowspan="2">4명</th>
+    <th align="center" colspan="2" width="100">평일: 300,000원
+      <button type="submit" style="background-color:green;color:white;">예약하기</button>
+    </th>
+  </tr>
+  <tr bgcolor="orange">
+    <th align="center" colspan="2" width="100">주말: 500,000원
+      <button type="submit" style="background-color:green;color:white;">예약하기</button>
+    </th>
+  </tr>
 
-  공지사항 작성하기
-  <table>
+  <tr bgcolor="orange">
 
-    <tr>
-      <td style="margin-left:150px">제목</td>
-      <td ><input type="text" style="width:300px;" name="title" placeholder="제목을 입력하시오." required></td>
-    </tr>
-    <tr>
-      <td>내용</td>
-      <td><textarea style="width:300px;" rows="10" name="content" placeholder="내용을 입력하시오." required></textarea></td>
-    </tr>
-  </table>
-</form>
+    <th align="center" rowspan="2">행복방</th>
+    <th align="center" rowspan="2">6명</th>
+    <th align="center" colspan="2" width="100">평일: 400,000원
+      <button type="submit" style="background-color:green;color:white;">예약하기</button>
+    </th>
+  </tr>
+  <tr bgcolor="orange">
+    <th align="center" colspan="2" width="100">주말: 600,000원
+      <button type="submit" style="background-color:green;color:white;">예약하기</button>
+    </th>
+  </tr>
+  <tr bgcolor="orange">
 
-<div>
-  첨부파일
-  <button type="submit" name="uploadFile">파일 선택</button>선택된 파일 없음<br>
+    <th align="center" rowspan="2">코딩방</th>
+    <th align="center" rowspan="2">무제한</th>
+    <th align="center" colspan="2" width="100">평일: 800,000원
+      <button type="submit" style="background-color:green;color:white;">예약하기</button>
+    </th>
+  </tr>
+  <tr bgcolor="orange">
+    <th align="center" colspan="2" width="100">주말: 990,000원
+      <button type="submit" style="background-color:green;color:white;">예약하기</button>
+    </th>
+  </tr>
+  <tr>
+    <th colspan="5" bgcolor="yellow" ><font color="red"> 예약시 커피 무제한 무료 증정!!</font></th>
+  </tr>
+  </tr>
 
-</div>
-<div style="margin-left:150px">
-  <button type="submit" margin>작성하기</button>
-</div>
+
+</table>
 </body>
 </html>

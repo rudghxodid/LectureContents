@@ -1,4 +1,4 @@
-package com.example.demo.controller.vue.jpa.request;
+package com.example.demo.controller.member.request;
 
 
 import lombok.Data;

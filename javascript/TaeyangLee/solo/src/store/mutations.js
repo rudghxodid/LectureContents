@@ -2,7 +2,10 @@ import {
  
     // 게시판
     FETCH_BOARD_LIST,
-    FETCH_BOARD
+    FETCH_BOARD,
+    FETCH_LOGIN,
+    
+    
  
 } from './mutation-types'
 
@@ -15,6 +18,11 @@ export default {
     },
     [FETCH_BOARD] (state, board) {
         state.board = board
+    },
+   
+   
+    [FETCH_LOGIN] (state, list) {
+        state.list = list
     }
    
 }

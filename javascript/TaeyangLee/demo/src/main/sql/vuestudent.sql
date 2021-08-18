@@ -23,3 +23,7 @@ insert into vuestudent (name, score) values
    ('나얼',55);
     insert into vuestudent (name, score) values
    ('박효신',75);
+
+
+   insert into board (title, content, writer) values
+    ('테스트', '내용입력', '이태양');

@@ -1,8 +1,7 @@
-package com.example.demo.controller.vue.session;
+package com.example.demo.controller.session;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 import java.io.Serializable;
 

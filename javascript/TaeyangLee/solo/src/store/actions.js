@@ -1,7 +1,9 @@
 import {
     // 게시판
     FETCH_BOARD_LIST,
-    FETCH_BOARD
+    FETCH_BOARD,
+    FETCH_LOGIN
+    
 
 } from './mutation-types'
 
@@ -23,7 +25,15 @@ export default {
                 .then((res) => {
                     commit(FETCH_BOARD, res.data)
                 })
-    }
+    },
+    
+    fetchLOGIN ({ commit }) {
+        return axios.get('http://localhost:7777/jpamember/needSession')
+                .then((res) => {
+                    commit(FETCH_LOGIN, res.data)
+                })
+    },
+   
     
     
 }

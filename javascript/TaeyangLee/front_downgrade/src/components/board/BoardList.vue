@@ -22,6 +22,8 @@
                     </router-link>
                 </td>
                 <td align="right">{{ board.writer }}</td>
+                <td align="right">{{ board.nowfunding }}</td>
+                <td align="right">{{ board.funding }}</td>
                 <td align="center">{{ board.regDate }}</td>
             </tr>
         </table>

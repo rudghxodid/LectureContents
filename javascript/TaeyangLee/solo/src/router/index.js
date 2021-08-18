@@ -8,6 +8,7 @@ import BoardReadPage from '@/views/BoardReadPage.vue'
 import BoardModifyPage from '@/views/BoardModifyPage.vue'
 
 import MemberRegisterPage from '@/views/MemberRegisterPage.vue'
+import VuetifyMemberLoginPage from '@/views/VuetifyMemberLoginPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -61,7 +62,14 @@ const routes = [
       // 라우팅 파라미터를 props에 자동으로 설정하게 서포트함
       default: true
     }
-  }
+  },
+  {
+    path: '/logintest',
+    name: 'VuetifyMemberLoginPage',
+    components: {
+      default: VuetifyMemberLoginPage
+    }
+  },
 ]
 
 const router = new VueRouter({

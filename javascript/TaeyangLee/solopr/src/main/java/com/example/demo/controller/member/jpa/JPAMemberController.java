@@ -1,9 +1,7 @@
-package com.example.demo.controller.member;
+package com.example.demo.controller.member.jpa;
 
 import com.example.demo.controller.member.request.MemberRequest;
 import com.example.demo.controller.session.UserInfo;
-import com.example.demo.controller.vue.jpa.request.MemberRequest;
-import com.example.demo.controller.vue.session.UserInfo;
 import com.example.demo.entity.jpa.Member;
 import com.example.demo.service.jpa.JPAMemberService;
 import lombok.extern.slf4j.Slf4j;

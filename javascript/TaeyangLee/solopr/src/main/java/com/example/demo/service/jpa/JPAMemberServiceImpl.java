@@ -1,8 +1,8 @@
 package com.example.demo.service.jpa;
 
-import com.example.demo.controller.vue.jpa.request.MemberRequest;
-import com.example.demo.entity.jpa.Member;
+import com.example.demo.controller.member.request.MemberRequest;
 
+import com.example.demo.entity.jpa.Member;
 import com.example.demo.entity.jpa.MemberAuth;
 import com.example.demo.repository.jpa.JPAMemberAuthRepository;
 import com.example.demo.repository.jpa.JPAMemberRepository;
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Slf4j
