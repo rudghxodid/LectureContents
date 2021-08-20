@@ -74,6 +74,8 @@ import MemberJoinColumnTestPage from '@/views/MemberJoinColumnTestPage.vue'
 
 import VuetifyMemberLoginPage from '@/views/VuetifyMemberLoginPage.vue'
 
+import FileUploadPage from '@/views/FileUploadPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -353,6 +355,13 @@ const routes = [
     name: 'VuetifyMemberLoginPage',
     components: {
       default: VuetifyMemberLoginPage
+    }
+  },
+  {
+    path: '/fileUpolad',
+    name: 'FileUploadPage',
+    components: {
+      default: FileUploadPage
     }
   },
 

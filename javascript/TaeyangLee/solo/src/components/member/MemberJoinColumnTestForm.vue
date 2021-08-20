@@ -1,23 +1,28 @@
 <template>
     <v-container>
         <form @submit.prevent="onSubmit">
-            <h3>회원 가입 양식</h3>
+            <h3>회원 가입</h3>
             <div class="row">
                 <v-radio-group v-model="radioGroup" row>
                     <v-radio v-for="kinds in kindsOfMember" :key="kinds" :label="`${kinds}`"> 
                     </v-radio>
                 </v-radio-group>
             </div>
-            <table>
-                <tr>
-                    <td>아이디</td>
-                    <td><input type="text" v-model="userId"></td>
-                </tr>
-                <tr>
-                    <td>비밀번호</td>
-                    <td><input type="password" v-model="password"></td>
-                </tr>
-            </table>
+           <div class="mx-3"> <v-icon color="black" size="30px">person</v-icon>
+                 ID
+                <div class="mx-1">
+                 <v-text-field placeholder="ID" v-model="userId" required >
+                </v-text-field>
+                 </div>
+                  </div> 
+                  <div class="mx-3"> 
+                    <v-icon color="black" size="30px">lock</v-icon>
+                     Password
+                    <div class="mx-1">
+                     <v-text-field placeholder="Password" type="pw" v-model="password" required 
+                     ></v-text-field> 
+                     </div> 
+                     </div> 
 
             <div>
                 <button type="submit">등록</button>

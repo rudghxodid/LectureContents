@@ -14,6 +14,10 @@
             <td>본문</td>
             <td><textarea cols="50" rows="20" v-model="content"></textarea></td>
         </tr>
+         <tr>
+            <td>목표금액</td>
+            <td><input type="text" v-model="funding"></td>
+        </tr>
     </table>
     <div>
         <button type="submit">등록</button>
@@ -32,14 +36,15 @@ export default {
         return {
             title: '제목을 작성하세요',
             writer : '',
-            content: '본문을 작성하면 됩니다.'
+            content: '본문을 작성하면 됩니다.',
+            funding: '목표금액을 입력하세요'
 
         }
     },
     methods: {
         onSubmit() {
-            const { title, writer, content } =this
-            this.$emit('submit', { title, writer, content })
+            const { title, writer, content, funding } =this
+            this.$emit('submit', { title, writer, content, funding })
         }
     }
 }

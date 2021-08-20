@@ -5,19 +5,7 @@
         </div>
         <vuetify-member-login-form @submit="onSubmit"/>
         <v-spacer></v-spacer>
-        <v-btn tile color="teal" @click="showSession">
-            <v-icon left>
-                ads_click
-            </v-icon>
-            세션 보기
-        </v-btn>
-        <v-spacer></v-spacer>
-        <v-btn tile color="teal" @click="removeSession">
-            <v-icon left>
-                ads_click
-            </v-icon>
-            세션 끊기
-        </v-btn>
+       
     </div>
 </template>
 
