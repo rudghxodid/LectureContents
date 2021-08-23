@@ -10,7 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor
 public class MemberRequest {
     private String userId;
+    private String name;
+    private String address;
     private String password;
     private String auth;
+
 
 }

@@ -4,7 +4,7 @@ export default {
     boards: [],
     board: null,
     
-    list: false
+    isLogin: false
    
     
 }

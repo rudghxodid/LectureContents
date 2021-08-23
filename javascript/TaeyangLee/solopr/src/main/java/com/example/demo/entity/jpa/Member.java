@@ -28,6 +28,12 @@ public class Member {
     @Column(length = 64, nullable = false)
     private String password;
 
+    @Column(length = 64, nullable = false)
+    private String name;
+
+    @Column(length = 64, nullable = false)
+    private String address;
+
     @CreationTimestamp
     private Date regDate;
 
@@ -38,9 +44,11 @@ public class Member {
     @JoinColumn(name = "member_no")
     private List<MemberAuth> authList = new ArrayList<MemberAuth>();
 
-    public Member(String userId, String password) {
+    public Member(String userId, String password, String name, String address) {
         this.userId =userId;
         this.password = password;
+        this.name = name;
+        this.address = address;
     }
 
 

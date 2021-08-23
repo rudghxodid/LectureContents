@@ -1,9 +1,9 @@
 <template>
 <div>
     <br>
-    <hooper :autoPlay="true" :playSpeed="2000" class="text-center" id="hooper" style="height: 500px" :itemsToShow="1.6" :centerMode="true" infiniteScroll>
+    <hooper :autoPlay="true" :playSpeed="2000" class="text-center" id="hooper" style="height: 500px" :itemsToShow="1.5" :centerMode="true" infiniteScroll>
       <slide v-for="slide in slides" :key="slide" class="slide">
-         <v-img :src="slide" aspect-ratio="2.5" class="gery lighten-2"></v-img>
+         <v-img :src="slide" aspect-ratio="1.8" class="gery lighten-2"></v-img>
             <p>{{ slide }}</p> 
       </slide>
       <hooper-navigation slot="hooper-addons"></hooper-navigation>

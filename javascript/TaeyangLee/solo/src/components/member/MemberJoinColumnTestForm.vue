@@ -7,6 +7,7 @@
                     <v-radio v-for="kinds in kindsOfMember" :key="kinds" :label="`${kinds}`"> 
                     </v-radio>
                 </v-radio-group>
+                
             </div>
            <div class="mx-3"> <v-icon color="black" size="30px">person</v-icon>
                  ID
@@ -15,14 +16,33 @@
                 </v-text-field>
                  </div>
                   </div> 
+
+                  <div class="mx-3"> 
+                    <v-icon color="black" size="30px">label</v-icon>
+                     Name
+                    <div class="mx-1">
+                     <v-text-field placeholder="name" v-model="name" required 
+                     ></v-text-field>
+                     </div> 
+                     </div> 
+
                   <div class="mx-3"> 
                     <v-icon color="black" size="30px">lock</v-icon>
                      Password
                     <div class="mx-1">
-                     <v-text-field placeholder="Password" type="pw" v-model="password" required 
-                     ></v-text-field> 
+                     <v-text-field placeholder="Password" type="password" v-model="password" required 
+                     ></v-text-field>
                      </div> 
+                     </div>
+
+                <div class="mx-3"> 
+                    <v-icon color="black" size="30px">room</v-icon>
+                     address
+                    <div class="mx-1">
+                     <v-text-field placeholder="address" v-model="address" required 
+                     ></v-text-field>
                      </div> 
+                     </div>  
 
             <div>
                 <button type="submit">등록</button>
@@ -35,6 +55,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'MemberJoinColumnTestForm',
     data () {
@@ -45,15 +66,20 @@ export default {
                 '사업자'
             ],
             userId: '',
-            password: ''
+            password: '',
+            name: '',
+            address: ''
         }
     },
     methods: {
         onSubmit () {
-            const { userId, password, radioGroup } = this
+            const { userId, password, name, address, radioGroup } = this
             const auth = radioGroup == 0 ? '개인' : '사업자'
-            this.$emit('submit', { userId, password, auth })
-        }
+            this.$emit('submit', { userId, password, name, address, auth })
+        },
+        
+        
+       
     }
 }
 </script>

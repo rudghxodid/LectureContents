@@ -21,8 +21,8 @@ export default {
     },
    
    
-    [FETCH_LOGIN] (state, list) {
-        state.list = list
+    [FETCH_LOGIN] (state, isLogin) {
+        state.isLogin = isLogin
     }
    
 }

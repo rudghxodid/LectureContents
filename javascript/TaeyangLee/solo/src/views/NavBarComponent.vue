@@ -16,24 +16,14 @@
             <v-spacer></v-spacer>
             <v-toolbar-title>
            
-            <router-link :to="{ name: 'MemberRegisterPage' }"
-                    class="nav-link"
-                    active-class="active" v-model="show">
-                회원가입
-            </router-link>
+            
            
             &nbsp;&nbsp;&nbsp;
-             <router-link :to="{ name: 'VuetifyMemberLoginPage' }"
-                    class="nav-link"
-                    active-class="active" v-model="show">
-                로그인
-            </router-link>
+            
             &nbsp;&nbsp;&nbsp;
-            <router-link :to="{ name: 'Home' }"
-                    class="nav-link"
-                    active-class="active" v-model="show2">
-                로그아웃
-            </router-link>
+            <v-btn @click="gotoLogin" color="#FFCC97" height="80px" x-large fontSize="15">로그인</v-btn>
+
+            <v-btn @click="gotoJoin" color="#FFCC97" height="80px" x-large fontSize="15">회원가입</v-btn>
             <v-btn @click="gotoClick" color="#CEF279" height="80px" x-large fontSize="15" class="direct">바로 후원하기</v-btn>
            
             </v-toolbar-title>
@@ -121,6 +111,12 @@ export default {
         },
         gotoClick() {
             this.$router.push('/board')
+        },
+        gotoJoin() {
+            this.$router.push('/member/create')
+        },
+        gotoLogin() {
+            this.$router.push('/logintest')
         },
         ...mapActions(['fetchLogin'])
 

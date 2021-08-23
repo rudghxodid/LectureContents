@@ -34,15 +34,28 @@ public class JPAMemberController {
     private HttpSession session;
 
     @PostMapping("/register")
-    public ResponseEntity<Void> jpaRegister(
+    public Object jpaRegister(
             @Validated @RequestBody MemberRequest memberRequest) throws Exception {
         log.info("jpaRegister(): " + memberRequest.getUserId() + ", " + memberRequest.getPassword() + ", " +
                 (memberRequest.getAuth().equals("사업자") ? "ROLE_BUSINESS" : "ROLE_INDIVIDUAL"));
 
-        service.register(memberRequest);
+        boolean checkId = false;
+        checkId = service.checkDuplicateId(memberRequest.getUserId());
 
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        if(checkId == true) {
+            log.info("success");
+            log.info(memberRequest.getUserId());
+            service.register(memberRequest);
+            return new ResponseEntity<Boolean>(HttpStatus.OK);
+        }else {
+            log.info("duuplicate");
+            log.info(memberRequest.getUserId());
+            return false;
+        }
+
     }
+
+
 
     @PostMapping("/login")
     public ResponseEntity<UserInfo> jpaLogin(

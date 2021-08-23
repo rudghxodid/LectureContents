@@ -4,11 +4,11 @@
             <h2>회원 가입</h2>
         </div>
         <member-join-column-test-form @submit="onSubmit"/>
+        
         <v-spacer></v-spacer>
-        <v-btn tile color="teal" @click="onJPATest">
+       
             
-           
-        </v-btn>
+     
     </div>
 </template>
 
@@ -16,35 +16,24 @@
 import MemberJoinColumnTestForm from '@/components/member/MemberJoinColumnTestForm.vue'
 import axios from 'axios'
 export default {
-    name: 'MemberJoinColumnTestPage',
+    name: 'MemberRegisterPage',
     components: {
         MemberJoinColumnTestForm
     },
     methods: {
         onSubmit (payload) {
-            const { userId, password, auth } = payload
+            const { userId, password, name, address, auth } = payload
             axios.post('http://localhost:7777/jpamember/register', {
-                        userId, password, auth
+                        userId, password, name,address, auth
                     })
                     .then(res => {
-                        alert('등록 성공! - ' + res)
+                        alert('회원가입이 완료되었습니다' + res)
                         
                         this.$router.push({
-                            name: 'home'
+                            name: 'Home'
                             
                         })
                         
-                    })
-                    .catch(res => {
-                        alert(res.response.data.message)
-                    })
-        },
-        onJPATest () {
-            axios.post('http://localhost:7777/jpamember/test', {
-                        userId: null, password: null, auth: null
-                    })
-                    .then(res => {
-                        alert('테스트 성공! - ' + res)
                     })
                     .catch(res => {
                         alert(res.response.data.message)
