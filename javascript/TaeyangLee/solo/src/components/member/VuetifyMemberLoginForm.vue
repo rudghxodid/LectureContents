@@ -18,7 +18,7 @@
                     <v-icon color="black" size="30px">lock</v-icon>
                      Password
                     <div class="mx-1">
-                     <v-text-field placeholder="Password" type="pw" v-model="pw" required 
+                     <v-text-field placeholder="Password" type="password" v-model="pw" required 
                      ></v-text-field> 
                      </div> 
                      </div> 

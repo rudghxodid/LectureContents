@@ -5,21 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Date;
 
 @Getter
 @Setter
 @ToString
-public class Board {
-
-    private Integer boardNo;
+public class Gongzi{
+    private Integer gongziNo;
     private String title;
     private String content;
     private String writer;
-    private int funding;
-    private int nowfunding;
     private Date regDate;
-
-
 }

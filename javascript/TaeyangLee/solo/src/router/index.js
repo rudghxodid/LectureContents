@@ -9,6 +9,11 @@ import BoardModifyPage from '@/views/BoardModifyPage.vue'
 
 import MemberRegisterPage from '@/views/MemberRegisterPage.vue'
 import VuetifyMemberLoginPage from '@/views/VuetifyMemberLoginPage.vue'
+
+import GongziListPage from '@/views/GongziListPage.vue'
+import GongziRegisterPage from '@/views/GongziRegisterPage.vue'
+import GongziReadPage from '@/views/GongziReadPage.vue'
+//import GongziModifyPage from '@/views/GongziModifyPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,6 +22,8 @@ const routes = [
     name: 'Home',
     component: Home
   },
+
+  //게시글
   {
     path: '/board',
     name: 'BoardListPage',
@@ -68,6 +75,32 @@ const routes = [
     name: 'VuetifyMemberLoginPage',
     components: {
       default: VuetifyMemberLoginPage
+    }
+  },
+
+  //공지사항
+  {
+    path: '/gongzi',
+    name: 'GongziListPage',
+    components: {
+      default: GongziListPage
+    }
+  },
+  {
+    path: '/gongzi/create',
+    name: 'GongziRegisterPage',
+    components: {
+      default: GongziRegisterPage
+    }
+  },
+  {
+    path: '/gongzi/:gonziNo',
+    name: 'GongziReadPage',
+    components: {
+      default: GongziReadPage
+    },
+    props: {
+      default: true
     }
   },
 ]

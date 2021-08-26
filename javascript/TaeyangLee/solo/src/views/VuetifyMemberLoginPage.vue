@@ -18,16 +18,26 @@ export default {
     components: {
         VuetifyMemberLoginForm
     },
+   data() {
+    return {
+      id: "",
+      pw: "",
+      token: "",
+    }
+  },
     
     
     methods: {
         onSubmit (payload) {
+       
+      
             const { id, pw } = payload
             axios.post('http://localhost:7777/jpamember/login', { userId: id, password: pw, auth: null })
                     .then(res => {
+                        
                         if (res.data != "") {
                             alert('환영합니다!')
-                            this.isLogin = true;
+                            
                             this.$router.push({name: 'Home'})
                         } else {
                             alert('로그인 실패! - ' + res.data)

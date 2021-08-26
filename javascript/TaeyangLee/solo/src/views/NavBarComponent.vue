@@ -21,9 +21,12 @@
             &nbsp;&nbsp;&nbsp;
             
             &nbsp;&nbsp;&nbsp;
-            <v-btn @click="gotoLogin" color="#FFCC97" height="80px" x-large fontSize="15">로그인</v-btn>
+            
+            <v-btn @click="gotoLogin" color="#FFCC97" height="80px" x-large fontSize="15" depressed>로그인</v-btn>
 
             <v-btn @click="gotoJoin" color="#FFCC97" height="80px" x-large fontSize="15">회원가입</v-btn>
+            <v-btn @click="removeSession" color="#FFCC97" height="80px" x-large fontSize="15">로그아웃</v-btn>
+
             <v-btn @click="gotoClick" color="#CEF279" height="80px" x-large fontSize="15" class="direct">바로 후원하기</v-btn>
            
             </v-toolbar-title>
@@ -64,6 +67,7 @@
 </template>
 
 <script>
+
 import { mapState, mapActions } from 'vuex'
 export default {
     name: 'NavBarComponent',
@@ -73,8 +77,7 @@ export default {
             nav_drawer: false,
             isLogin: false,
             group: false,
-            show: true,
-            show2: false,
+            
          
             userInfo: {
                 email: '',
@@ -91,13 +94,13 @@ export default {
                     icon: 'ev_station', text: '후원안내', name: 'ev_station', route: '/materialize'
                 },
                  {
-                    icon: 'ev_station', text: '문의게시판', name: 'ev_station', route: '/gongzi'
+                    icon: 'ev_station', text: '공지사항', name: 'ev_station', route: '/gongzi'
                 }
             ]
         }
     },
      computed: {
-        ...mapState(['list'])
+        ...mapState(['isLogin'])
     },
     mounted () {
         this.fetchLogin()
@@ -110,14 +113,22 @@ export default {
                         })
         },
         gotoClick() {
-            this.$router.push('/board')
+            
+            
+            if(this.isLogin == false) {
+                alert("로그인 후 이용해주세요")
+            }else{
+                this.$router.push('/board')
+            }
         },
         gotoJoin() {
+            
             this.$router.push('/member/create')
         },
         gotoLogin() {
             this.$router.push('/logintest')
         },
+     
         ...mapActions(['fetchLogin'])
 
        

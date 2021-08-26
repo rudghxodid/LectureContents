@@ -2,7 +2,9 @@ import {
     // 게시판
     FETCH_BOARD_LIST,
     FETCH_BOARD,
-    FETCH_LOGIN
+    FETCH_LOGIN,
+    FETCH_GONGZI_LIST,
+    FETCH_GONGZI
     
 
 } from './mutation-types'
@@ -33,7 +35,18 @@ export default {
                     commit(FETCH_LOGIN, res.data)
                 })
     },
-   
+    fetchGongziList ({ commit }) {
+        return axios.get('http://localhost:7777/gongzi/lists')
+                .then((res) => {
+                    commit(FETCH_GONGZI_LIST, res.data)
+                })
+    },
+    fetchGongzi ({ commit }, gongziNo) {
+        return axios.get(`http://localhost:7777/gongzi/${gongziNo}`)
+                .then((res) => {
+                    commit(FETCH_GONGZI, res.data)
+                })
+    },
     
     
 }

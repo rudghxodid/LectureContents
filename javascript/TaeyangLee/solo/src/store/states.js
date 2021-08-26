@@ -4,7 +4,10 @@ export default {
     boards: [],
     board: null,
     
-    isLogin: false
+    isLogin: false,
+
+    gongzis: [],
+    gongzi: null,
    
     
 }

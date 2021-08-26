@@ -85,6 +85,7 @@ public class JPAMemberController {
         return new ResponseEntity<UserInfo>(info, HttpStatus.OK);
     }
 
+
     @PostMapping("/needSession")
     public ResponseEntity<Boolean> postNeedSession(HttpServletRequest request) throws Exception {
 
