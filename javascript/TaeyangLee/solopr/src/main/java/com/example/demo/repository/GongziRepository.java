@@ -53,7 +53,7 @@ public class GongziRepository {
     }
     public Gongzi read (Integer gongziNo) throws Exception {
         List<Gongzi> results = jdbcTemplate.query(
-                "select gongzi_no, title, content, writer, reg_date from gongzi where gongzi_no = ?",
+                "select gongzi_no, title, content, writer, regDate from gongzi where gongzi_no = ?",
                 new RowMapper<Gongzi>() {
                     @Override
                     public Gongzi mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -63,7 +63,7 @@ public class GongziRepository {
                         gongzi.setTitle(rs.getString("title"));
                         gongzi.setContent(rs.getString("content"));
                         gongzi.setWriter(rs.getString("writer"));
-                        gongzi.setRegDate(rs.getDate("reg_date"));
+                        gongzi.setRegDate(rs.getDate("regDate"));
 
                         return gongzi;
                     }

@@ -8,6 +8,8 @@ export default {
 
     gongzis: [],
     gongzi: null,
+
+    session: []
    
     
 }

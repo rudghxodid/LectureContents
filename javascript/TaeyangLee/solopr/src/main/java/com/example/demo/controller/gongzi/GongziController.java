@@ -41,6 +41,7 @@ public class GongziController {
     @GetMapping("/{gongziNo}")
     public ResponseEntity<Gongzi> read(@PathVariable("gongziNo") Integer gongziNo) throws Exception {
         Gongzi gongzi = service.read(gongziNo);
+        log.info("getLists(): " + service.read(gongziNo));
         return new ResponseEntity<Gongzi>(gongzi, HttpStatus.OK);
     }
 

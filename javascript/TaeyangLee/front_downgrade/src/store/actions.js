@@ -26,7 +26,8 @@ import {
     // 성적 관리
     SCORE_MANAGEMENT,
     // 크롤링
-    CRAWL_START
+    CRAWL_START,
+    FETCH_SESSION
 } from './mutation-types'
 
 import axios from 'axios'
@@ -149,5 +150,8 @@ export default {
                         router.push('/daumNewsCrawler')
                     }
                 })
+    },
+    fetchSession ({ commit }) {
+        commit(FETCH_SESSION)
     }
 }

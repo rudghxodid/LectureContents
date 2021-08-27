@@ -22,10 +22,12 @@
             
             &nbsp;&nbsp;&nbsp;
             
-            <v-btn @click="gotoLogin" color="#FFCC97" height="80px" x-large fontSize="15" depressed>로그인</v-btn>
-
-            <v-btn @click="gotoJoin" color="#FFCC97" height="80px" x-large fontSize="15">회원가입</v-btn>
-            <v-btn @click="removeSession" color="#FFCC97" height="80px" x-large fontSize="15">로그아웃</v-btn>
+            <div style="float:left" v-if="isLogin">
+            <v-btn @click="gotoJoin" color="#FFCC97" height="80px" x-large fontSize="15" >회원가입</v-btn>
+            <v-btn @click="logout" color="#FFCC97" height="80px" x-large fontSize="15">로그아웃</v-btn>
+            
+            </div>
+            <v-btn @click="gotoLogin" color="#FFCC97" height="80px" x-large fontSize="15" depressed v-else>로그인</v-btn>
 
             <v-btn @click="gotoClick" color="#CEF279" height="80px" x-large fontSize="15" class="direct">바로 후원하기</v-btn>
            
@@ -68,19 +70,24 @@
 
 <script>
 
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
+
+import Vue from 'vue'
+import cookies from 'vue-cookies'
+Vue.use(cookies)
+
 export default {
     name: 'NavBarComponent',
     data () {
         return {
             
             nav_drawer: false,
-            isLogin: false,
-            group: false,
+            isLogin: false,           
+            group: false, 
             
          
             userInfo: {
-                email: '',
+                userId: '',
                 password: ''
             },
             links: [
@@ -100,10 +107,17 @@ export default {
         }
     },
      computed: {
-        ...mapState(['isLogin'])
+        ...mapState(['session'])
     },
     mounted () {
         this.fetchLogin()
+       
+        // this.fetchSession()
+        this.$store.state.session = this.$cookies.get("user")
+        if (this.$store.state.session != null) {
+            this.isLogin = true
+        
+    }
     },
     methods: {
         btnRegitser() {
@@ -126,10 +140,17 @@ export default {
             this.$router.push('/member/create')
         },
         gotoLogin() {
+            
             this.$router.push('/logintest')
         },
+        logout () {
+            this.$cookies.remove("user")
+            this.isLogin = false
+            this.$store.state.session = null
+            alert("로그아웃 되었습니다!")
+        },
      
-        ...mapActions(['fetchLogin'])
+      
 
        
         

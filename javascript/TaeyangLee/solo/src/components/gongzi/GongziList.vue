@@ -14,6 +14,7 @@
     </div>
 </template>
 
+
 <script>
 
 
@@ -27,29 +28,31 @@ export default {
              headerTitle: [
                 { text: '번호', value: 'gongziNo', width: "70px" },
                 { text: '제목', value: 'title', width: "200px" },
-                { text: '작성자', value: 'writer', width: "100px" },
-                { text: '내용', value: 'content', width: "100px" }
+                { text: '내용', value: 'content', width: "100px" },
+                { text: '작성자', value: 'writer', width: "100px" }
+                
                 
             ],
+            
             
         }
     },
     props: {
         gongzis: {
-            type: Array
-        
+            type: Array,
+            require: true
         }
     },
  
  
     methods: {
         ...mapActions(['fetchGongzi']),
-        readItem() {
+        readItem(gongzi) {
             
-            const gongzi = this.gongzis
+            
             
             this.$router.push({ name: 'GongziReadPage',
-                                    params: { gongziNo: gongzi.gongziNo}})
+                                    params: { gongziNo: gongzi.gongziNo} } )
         }
     },
     computed: {

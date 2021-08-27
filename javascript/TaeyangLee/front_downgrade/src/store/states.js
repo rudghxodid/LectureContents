@@ -21,6 +21,7 @@ export default {
     // 랜덤 던전
     dungeons: [],
     students: [],
-    lists: []
+    lists: [],
+    session: []
     
 }
