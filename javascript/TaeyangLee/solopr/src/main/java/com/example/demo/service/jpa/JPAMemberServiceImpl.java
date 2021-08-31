@@ -90,8 +90,13 @@ public class JPAMemberServiceImpl implements JPAMemberService {
 
 
 
+
     @Override
     public Optional<Member> findByAuth(Long memberNo) {
         return memberRepository.findByAuth(memberNo);
     }
+
+
+
+
 }

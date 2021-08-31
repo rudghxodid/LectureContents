@@ -1,7 +1,7 @@
   
 <template>
     <div>
-        <h3>게시물 읽기</h3>
+        
         <table>
             <tr>
                 <td>글번호</td>

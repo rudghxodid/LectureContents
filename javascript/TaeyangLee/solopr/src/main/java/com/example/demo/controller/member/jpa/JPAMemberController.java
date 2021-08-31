@@ -72,6 +72,10 @@ public class JPAMemberController {
             // 세션 할당
             info = new UserInfo();
             info.setUserId(memberRequest.getUserId());
+
+
+
+
             log.info("Session Info: " + info);
 
             session = request.getSession();

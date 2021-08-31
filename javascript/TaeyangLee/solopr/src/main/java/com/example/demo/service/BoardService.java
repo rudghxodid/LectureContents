@@ -16,5 +16,7 @@ public interface BoardService {
 
   public void modify(Board board) throws Exception;
 
+  public List<Board> search() throws Exception;
+
 
 }

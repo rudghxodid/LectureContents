@@ -1,6 +1,6 @@
 <template>
     <div align="center">
-        <h2>Vue + Spring 게시판 읽기</h2>
+        
         <board-read v-if="board" :board="board"/>
         <p v-else>로딩중 ...... </p>
       

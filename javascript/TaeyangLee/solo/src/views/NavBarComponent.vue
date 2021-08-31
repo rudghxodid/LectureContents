@@ -22,13 +22,14 @@
             
             &nbsp;&nbsp;&nbsp;
             
-            <div style="float:left" v-if="isLogin">
-            <v-btn @click="gotoJoin" color="#FFCC97" height="80px" x-large fontSize="15" >회원가입</v-btn>
-            <v-btn @click="logout" color="#FFCC97" height="80px" x-large fontSize="15">로그아웃</v-btn>
             
+             
+             
+            <v-btn @click="logout" color="#ffffff" height="80px" x-large fontSize="15" v-if="isLogin">로그아웃</v-btn>
+             <div style="float:left" v-else>
+             <v-btn @click="gotoJoin" color="#FFCC97" height="80px" x-large fontSize="15" >회원가입</v-btn>
+            <v-btn @click="gotoLogin" color="#FFCC97" height="80px" x-large fontSize="15" depressed >로그인</v-btn>
             </div>
-            <v-btn @click="gotoLogin" color="#FFCC97" height="80px" x-large fontSize="15" depressed v-else>로그인</v-btn>
-
             <v-btn @click="gotoClick" color="#CEF279" height="80px" x-large fontSize="15" class="direct">바로 후원하기</v-btn>
            
             </v-toolbar-title>
@@ -43,8 +44,8 @@
                 </v-btn>
                 
             </v-toolbar-items>
-        <input type="text" size="20" placeholder="검색할 내용을 입력해주세요." style="height:30px; margin:20px;">
-        <v-btn>검색</v-btn>
+   <!--     <input type="text" size="20" placeholder="검색할 내용을 입력해주세요." style="height:30px; margin:20px;" v-model="title">
+        <v-btn @click="search">검색</v-btn>  -->
         </v-toolbar>
         <v-navigation-drawer app v-model="nav_drawer" temporary>
             <v-list nav dense>
@@ -82,7 +83,7 @@ export default {
         return {
             
             nav_drawer: false,
-            isLogin: false,           
+            isLogin: false,
             group: false, 
             
          
@@ -94,9 +95,7 @@ export default {
                 {
                     icon: 'home', text: '소개', name: 'home', route: '/'
                 },
-                {
-                    icon: 'credit_card', text: '후원하기', name: 'credit_card', route: '/board'
-                },
+               
                 {
                     icon: 'ev_station', text: '후원안내', name: 'ev_station', route: '/materialize'
                 },
@@ -106,19 +105,28 @@ export default {
             ]
         }
     },
+    
      computed: {
         ...mapState(['session'])
     },
-    mounted () {
-        this.fetchLogin()
+    beforeUpdate () {
+        
+        this.$store.state.session = this.$cookies.get("user")
+        if (this.$store.state.session != null) {
+            this.isLogin = true
+        }
+    },
+    mounted () {  
        
-        // this.fetchSession()
         this.$store.state.session = this.$cookies.get("user")
         if (this.$store.state.session != null) {
             this.isLogin = true
         
     }
+    
     },
+   
+    
     methods: {
         btnRegitser() {
              this.$router.push({
@@ -133,6 +141,7 @@ export default {
                 alert("로그인 후 이용해주세요")
             }else{
                 this.$router.push('/board')
+                
             }
         },
         gotoJoin() {
@@ -140,8 +149,9 @@ export default {
             this.$router.push('/member/create')
         },
         gotoLogin() {
-            
             this.$router.push('/logintest')
+            
+       
         },
         logout () {
             this.$cookies.remove("user")
@@ -149,6 +159,7 @@ export default {
             this.$store.state.session = null
             alert("로그아웃 되었습니다!")
         },
+       
      
       
 
@@ -189,6 +200,8 @@ p {
    margin-top: 20px;
     border: 1px salmon;
 }
+
+
 
 
 

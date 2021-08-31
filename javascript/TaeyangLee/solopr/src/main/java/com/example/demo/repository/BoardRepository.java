@@ -87,5 +87,34 @@ public class BoardRepository {
         jdbcTemplate.update(query,board.getTitle(),board.getContent(),board.getBoardNo());
 
     }
+    public List<Board> search() throws Exception {
+
+        List<Board> results = jdbcTemplate.query(
+                "select board_no, title, content, writer, funding, nowfunding, regDate from board " +
+                        "where title = %?%",
+
+                new RowMapper<Board>() {
+                    @SneakyThrows
+                    @Override
+                    public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Board board = new Board();
+
+
+                        board.setBoardNo(rs.getInt("board_no"));
+                        board.setTitle(rs.getString("title"));
+                        board.setContent(rs.getString("content"));
+                        board.setWriter(rs.getString("writer"));
+                        board.setFunding(rs.getInt("funding"));
+                        board.setNowfunding(rs.getInt("nowfunding"));
+                        board.setRegDate(rs.getDate("regDate"));
+
+
+                        return board;
+                    }
+                }
+        );
+
+        return results;
+    }
 
 }

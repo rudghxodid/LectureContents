@@ -36,6 +36,7 @@ public class BoardController {
     public ResponseEntity<List<Board>> getLists () throws Exception {
         log.info("getLists(): " + service.list());
 
+
         return new ResponseEntity<>(service.list(), HttpStatus.OK);
     }
     @GetMapping("/{boardNo}")
@@ -58,6 +59,14 @@ public class BoardController {
         return new ResponseEntity<Void>(HttpStatus.OK);
 
     }
+    @GetMapping("/search")
+    public ResponseEntity<List<Board>> getSearch () throws Exception {
+        log.info("getLists(): " + service.search());
+
+
+        return new ResponseEntity<>(service.search(), HttpStatus.OK);
+    }
+
 
 
 }
