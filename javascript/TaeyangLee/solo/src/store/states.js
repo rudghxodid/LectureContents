@@ -5,7 +5,7 @@ export default {
     board: null,
     
     isLogin: false,
-
+    isAuth: false,
     gongzis: [],
     gongzi: null,
 

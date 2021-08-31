@@ -57,6 +57,7 @@ export default {
                                 this.$cookies.set("user", res.data, '1h')
                             
                             this.$router.push({name: 'Home'})
+                            
                         } else {
                             alert('로그인 실패! - ' + res.data)
                             this.isLogin = false

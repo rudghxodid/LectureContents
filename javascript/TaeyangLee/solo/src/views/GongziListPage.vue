@@ -1,20 +1,25 @@
 <template>
     <div id="gongzi">
-       <!--
-        <router-link :to="{ name: 'BoardRegisterPage' }">
-            게시물 작성
-        </router-link>   -->
+      
         <gongzi-list :gongzis="gongzis"/>
+        <v-btn @click="GongziRegister" v-if="isAuth">공지작성</v-btn>
+        
     </div>
 </template>
 
 <script>
 import GongziList from '@/components/gongzi/GongziList.vue'
 import { mapState, mapActions } from 'vuex'
+
 export default {
     name: 'GongziListPage',
     components: {
         GongziList
+    },
+    data() {
+        return{
+            isAuth: false
+        }
     },
     computed: {
         ...mapState(['gongzis'])
@@ -22,8 +27,20 @@ export default {
     mounted () {
         this.fetchGongziList()
     },
+    beforeUpdate () {  
+       
+        this.$store.state.session = this.$cookies.get("user")
+        if (this.$store.state.session.userId == 'sun') {
+            this.isAuth = true
+        
+    }
+    
+    },
     methods: {
-        ...mapActions(['fetchGongziList'])
+        ...mapActions(['fetchGongziList']),
+        GongziRegister() {
+            this.$router.push('/gongzi')
+        }
     }
 }
 </script>
