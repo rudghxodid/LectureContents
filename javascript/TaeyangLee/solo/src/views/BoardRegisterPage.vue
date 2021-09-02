@@ -18,8 +18,8 @@ export default {
     },
     methods: {
         onSubmit (payload) {
-            const { title, writer, content } = payload
-            axios.post('http://localhost:7777/board/register',{ title, writer, content })
+            const { title, writer, content, img, funding, nowfunding } = payload
+            axios.post('http://localhost:7777/board/register',{ title, writer, content, img, funding, nowfunding })
             .then(res => {
                 alert('등록 성공!' + res)
                 this.$router.push({

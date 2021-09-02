@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class BoardController {
 
     @PostMapping("/register")
     public ResponseEntity<Board> register(@Validated @RequestBody Board board) throws Exception {
-        log.info("post register request from vue");
+        log.info("post register request from vue: " + board);
 
         service.register(board);
 
@@ -59,13 +60,7 @@ public class BoardController {
         return new ResponseEntity<Void>(HttpStatus.OK);
 
     }
-    @GetMapping("/search")
-    public ResponseEntity<List<Board>> getSearch () throws Exception {
-        log.info("getLists(): " + service.search());
 
-
-        return new ResponseEntity<>(service.search(), HttpStatus.OK);
-    }
 
 
 
