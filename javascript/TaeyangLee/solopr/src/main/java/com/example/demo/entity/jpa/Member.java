@@ -12,10 +12,10 @@ import java.util.Date;
 import java.util.List;
 
 
-@Entity
 @Data
 @NoArgsConstructor
-@Table(name = "member")
+@Entity
+@Table(name="member")
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,37 +28,27 @@ public class Member {
     @Column(length = 64, nullable = false)
     private String password;
 
-    @Column(length = 64, nullable = false)
-    private String name;
-
-    @Column(length = 64, nullable = false)
-    private String address;
-
     @CreationTimestamp
     private Date regDate;
 
     @UpdateTimestamp
-    private Date upDate;
+    private Date updDate;
 
+    /* Join Column 파트 */
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "member_no")
     private List<MemberAuth> authList = new ArrayList<MemberAuth>();
 
-    public Member(String userId, String password, String name, String address) {
-
-        this.userId =userId;
+    public Member(String userId, String password) {
+        this.userId = userId;
         this.password = password;
-        this.name = name;
-        this.address = address;
     }
-
 
     public void addAuth(MemberAuth auth) {
         authList.add(auth);
     }
 
-    public void clearAuthList() {
+    public void clearAuthList () {
         authList.clear();
     }
-
 }

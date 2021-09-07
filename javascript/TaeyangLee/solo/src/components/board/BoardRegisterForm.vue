@@ -56,8 +56,8 @@ export default {
     },
     methods: {
         onSubmit() {
-            const { title, writer, content, img, funding, nowfunding } = this
-            this.$emit('submit', { title, writer, content, img, funding, nowfunding })
+            const { title, writer, content, img, nowfunding, funding } = this
+            this.$emit('submit', { title, writer, content, img, nowfunding, funding })
         },
         handleFileUpload () {
             this.files = this.$refs.files.files

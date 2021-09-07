@@ -32,7 +32,7 @@ public class JPAMemberServiceImpl implements JPAMemberService {
         memberRequest.setPassword(encodedPassword);
 
         MemberAuth authEntity = new MemberAuth(memberRequest.getAuth());
-        Member memberEntity = new Member(memberRequest.getUserId(), memberRequest.getPassword(), memberRequest.getName(), memberRequest.getAddress());
+        Member memberEntity = new Member(memberRequest.getUserId(), memberRequest.getPassword());
         memberEntity.addAuth(authEntity);
 
         memberRepository.save(memberEntity);
@@ -42,14 +42,16 @@ public class JPAMemberServiceImpl implements JPAMemberService {
     public boolean login(MemberRequest memberRequest) throws Exception {
         Optional<Member> maybeMember = memberRepository.findByUserId(memberRequest.getUserId());
 
-        if (maybeMember == null) {
+        if (maybeMember == null)
+        {
             log.info("login(): 그런 사람 없다.");
             return false;
         }
 
         Member loginMember = maybeMember.get();
 
-        if (!passwordEncoder.matches(memberRequest.getPassword(), loginMember.getPassword())) {
+        if (!passwordEncoder.matches(memberRequest.getPassword(), loginMember.getPassword()))
+        {
             log.info("login(): 비밀번호 잘못 입력하였습니다.");
             return false;
         }
@@ -61,20 +63,14 @@ public class JPAMemberServiceImpl implements JPAMemberService {
     public boolean checkUserIdValidation(String userId) throws Exception {
         Optional<Member> maybeMember = memberRepository.findByUserId(userId);
 
-        if (maybeMember == null) {
+        if (maybeMember == null)
+        {
             log.info("login(): 그런 사람 없다.");
             return false;
         }
 
         return true;
     }
-
-    /*
-    @Override
-    public List<Member> list() throws Exception {
-        return repository.list();
-    }
-     */
 
     @Override
     public boolean checkDuplicateId(String userId) throws Exception {
@@ -84,19 +80,19 @@ public class JPAMemberServiceImpl implements JPAMemberService {
 
             return false;
         }
-            return true;
+        return true;
 
     }
-
-
+/*
+    @Override
+    public List<Member> list() throws Exception {
+        return repository.list();
+    }
+     */
 
 
     @Override
     public Optional<Member> findByAuth(Long memberNo) {
         return memberRepository.findByAuth(memberNo);
     }
-
-
-
-
 }

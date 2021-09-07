@@ -71,7 +71,9 @@ public class JPAMemberController {
             log.info("Login Success");
             // 세션 할당
             info = new UserInfo();
+
             info.setUserId(memberRequest.getUserId());
+
 
 
 

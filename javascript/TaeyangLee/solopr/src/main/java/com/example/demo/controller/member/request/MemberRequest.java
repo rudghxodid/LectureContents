@@ -9,11 +9,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @NoArgsConstructor
 public class MemberRequest {
+    private Long memberNo;
     private String userId;
     private String name;
     private String address;
     private String password;
     private String auth;
+
 
 
 }

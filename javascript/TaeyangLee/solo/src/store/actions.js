@@ -47,6 +47,16 @@ export default {
                     commit(FETCH_GONGZI, res.data)
                 })
     },
+    async crawlFind ({ commit }, category) {
+        axios.get('http://localhost:7777/daumCrawler' + `${category}`)
+                .then(({ data }) => {
+                    commit(CRAWL_START, data)
+
+                    if (window.location.pathname !== '/daumNewsCrawler') {
+                        router.push('/daumNewsCrawler')
+                    }
+                })
+    }
     
     
 }

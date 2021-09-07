@@ -1,28 +1,44 @@
 <template>
-    <div>
-        <h3>게시물 목록</h3>
+ <div>
+        
         <table border="1">
             <tr v-if="!boards || (Array.isArray(boards) && boards.length === 0)">
                 <td colspan="4">
                     현재 등록된 게시물이 없습니다!
                 </td>
             </tr>
-            <tr v-else v-for="board in boards" :key="board.boardNo">
-                <td align="center">{{board.title}}</td>
-                <td>{{board.img}}</td>
-
+            
+            <tr v-else v-for="(board, idx) in boards" :key="idx">
+                
+                
+               
+                <router-link :to="{ name: 'BoardReadPage',
+                                    params: { boardNo: board.boardNo.toString() } }">
+                <td><img :src="require(`@/assets/img/${board.img}`)" style="width:300px; height:300px;"></td>
+                
+                   <td>{{board.title}} <br><br> {{board.writer}} <br><br>
+                   <br><br> {{board.content}} <br><br> {{board.nowfunding}} / {{board.funding}}</td>
+                </router-link>
                 <td>
-                 <img :src="require(`@/assets/img/${board.img}`)">
-                </td>                
+                    <v-btn @click="goFunding">후원하기</v-btn>
+                </td>
+                              
             </tr>
+           
         </table>
     </div>
+   
+    
+    
+     
+
+
+
 </template>
 
 
-<script>
 
-import { mapState, mapActions } from 'vuex'
+<script>
 
 export default {
     
@@ -39,31 +55,38 @@ export default {
                 { text: '', value: 'img', width: "50px"}
             ],
             
+           
+            
             
         }
     },
     props: {
         boards: {
             type: Array
-        
+            
         }
     },
  
  
     methods: {
-        ...mapActions(['fetchBoard']),
         readItem() {
             
             const board = this.boards
             
             this.$router.push({ name: 'BoardReadPage',
                                     params: { boardNo: board.boardNo.toString() }})
+        },
+        goFunding() {
+            alert("얼마를 후원하시겠습니까?")
         }
-    },
-    computed: {
-         ...mapState(['board'])
     }
-    
-    
 }
 </script>
+
+
+<style scoped>
+
+td {
+    text-align: right;
+}
+</style>

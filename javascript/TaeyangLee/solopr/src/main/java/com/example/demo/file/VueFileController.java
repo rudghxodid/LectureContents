@@ -29,6 +29,7 @@ public class VueFileController {
                 log.info("requestUploadFile(): Make File");
                 FileOutputStream writer = new FileOutputStream("C:\\java_work\\LectureContents\\javascript\\TaeyangLee\\solo\\src\\assets\\img\\" + multipartFile.getOriginalFilename());
                 writer.write(multipartFile.getBytes());
+
                 writer.close();
             }
 

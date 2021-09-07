@@ -34,5 +34,8 @@ export default {
     [FETCH_GONGZI] (state, gongzi) {
         state.gongzi = gongzi
     },
+    [CRAWL_START] (state, payload) {
+        state.lists = payload
+    }
    
 }

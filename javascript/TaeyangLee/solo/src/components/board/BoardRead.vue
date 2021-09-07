@@ -4,12 +4,7 @@
         
         <table>
             <tr>
-                <td>글번호</td>
-                <td><input type="text" :value="board.boardNo" readonly></td>
-            </tr>
-            <tr>
-                <td>등록일자</td>
-                <td><input type="text" :value="board.regDate" readonly></td>
+                
             </tr>
             <tr>
                 <td>제목</td>

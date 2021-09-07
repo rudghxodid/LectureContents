@@ -97,10 +97,10 @@ export default {
                 },
                
                 {
-                    icon: 'ev_station', text: '후원안내', name: 'ev_station', route: '/materialize'
+                    icon: 'ev_station', text: '후원안내', name: 'ev_station', route: '/daumNewsCrawler'
                 },
                  {
-                    icon: 'ev_station', text: '공지사항', name: 'ev_station', route: '/gongzi'
+                    icon: 'ev_station', text: '공지사항', name: 'gongzi', route: '/gongzi'
                 }
             ]
         }

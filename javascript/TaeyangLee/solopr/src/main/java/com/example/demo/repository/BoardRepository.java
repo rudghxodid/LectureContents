@@ -21,14 +21,14 @@ public class BoardRepository {
 
         public void create(Board board) throws Exception {
 
-            String query = "insert into board (title, content, writer, img, nowfunding, funding) values (?, ?, ?, ?, ?, ?)";
+            String query = "insert into board (title, content, writer, img, funding, nowfunding) values (?, ?, ?, ?, ?, ?)";
 
             jdbcTemplate.update(query, board.getTitle(), board.getContent(), board.getWriter(),board.getImg(), board.getFunding(), board.getNowfunding());
         }
     public List<Board> list() throws Exception {
 
         List<Board> results = jdbcTemplate.query(
-                "select board_no, title, content, writer, funding, img,  nowfunding, regDate from board " +
+                "select board_no, title, content, writer, img, funding, nowfunding, regDate from board " +
                         "where board_no > 0 order by board_no desc",
 
                 new RowMapper<Board>() {

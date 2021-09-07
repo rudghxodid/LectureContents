@@ -87,6 +87,13 @@ const routes = [
     }
   },
   {
+    path: '/daumNewsCrawler',
+    name: 'DaumNewsCrawlerPage',
+    components: {
+      default: DaumNewsCrawlerPage
+    }
+  },
+  {
     path: '/gongzi/create',
     name: 'GongziRegisterPage',
     components: {
@@ -99,6 +106,9 @@ const routes = [
     components: {
       default: GongziReadPage
     },
+   
+
+
     props: {
       default: true
     }
