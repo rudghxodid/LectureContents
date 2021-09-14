@@ -93,11 +93,11 @@ export default {
             },
             links: [
                 {
-                    icon: 'home', text: '소개', name: 'home', route: '/'
+                    icon: 'home', text: 'Home', name: 'home', route: '/'
                 },
                
                 {
-                    icon: 'ev_station', text: '후원안내', name: 'ev_station', route: '/daumNewsCrawler'
+                    icon: 'book', text: '관련소식', name: 'ev_station', route: '/daumNewsCrawler'
                 },
                  {
                     icon: 'ev_station', text: '공지사항', name: 'gongzi', route: '/gongzi'

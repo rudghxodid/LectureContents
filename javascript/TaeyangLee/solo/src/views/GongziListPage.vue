@@ -30,7 +30,7 @@ export default {
     beforeUpdate () {  
        
         this.$store.state.session = this.$cookies.get("user")
-        if (this.$store.state.session.userId == 'sun') {
+        if (this.$store.state.session.auth == '관리자') {
             this.isAuth = true
         
     }

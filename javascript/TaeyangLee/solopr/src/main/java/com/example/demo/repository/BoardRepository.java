@@ -89,6 +89,11 @@ public class BoardRepository {
         jdbcTemplate.update(query,board.getTitle(),board.getContent(),board.getBoardNo());
 
     }
+    public void fund(Board board) throws Exception {
+        String query = "update board set nowfunding = ? where board_no = ?";
+        jdbcTemplate.update(query,board.getNowfunding());
+    }
+
     public List<Board> search() throws Exception {
 
         List<Board> results = jdbcTemplate.query(

@@ -13,6 +13,7 @@ import VuetifyMemberLoginPage from '@/views/VuetifyMemberLoginPage.vue'
 import GongziListPage from '@/views/GongziListPage.vue'
 import GongziRegisterPage from '@/views/GongziRegisterPage.vue'
 import GongziReadPage from '@/views/GongziReadPage.vue'
+import DaumNewsCrawlerPage from '@/views/DaumNewsCrawlerPage.vue'
 //import GongziModifyPage from '@/views/GongziModifyPage.vue'
 Vue.use(VueRouter)
 

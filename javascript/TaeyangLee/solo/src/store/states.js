@@ -9,7 +9,8 @@ export default {
     gongzis: [],
     gongzi: null,
 
-    session: []
+    session: [],
+    lists: []
    
     
 }

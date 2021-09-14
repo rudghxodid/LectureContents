@@ -34,6 +34,11 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    public void fund(Board board) throws Exception {
+        repository.update(board);
+    }
+
+    @Override
     public void modify(Board board) throws Exception {
         repository.update(board);
     }

@@ -2,15 +2,16 @@ import {
     // 게시판
     FETCH_BOARD_LIST,
     FETCH_BOARD,
-    FETCH_LOGIN,
+    
     FETCH_GONGZI_LIST,
-    FETCH_GONGZI
+    FETCH_GONGZI,
+    CRAWL_START,
     
 
 } from './mutation-types'
 
 import axios from 'axios'
-
+import router from '../router'
 
 
 export default {
@@ -29,12 +30,7 @@ export default {
                 })
     },
     
-    fetchLOGIN ({ commit }) {
-        return axios.get('http://localhost:7777/jpamember/needSession')
-                .then((res) => {
-                    commit(FETCH_LOGIN, res.data)
-                })
-    },
+    
     fetchGongziList ({ commit }) {
         return axios.get('http://localhost:7777/gongzi/lists')
                 .then((res) => {
@@ -48,7 +44,7 @@ export default {
                 })
     },
     async crawlFind ({ commit }, category) {
-        axios.get('http://localhost:7777/daumCrawler' + `${category}`)
+        axios.get('http://localhost:7777/daumCrawler/' + `${category}`)
                 .then(({ data }) => {
                     commit(CRAWL_START, data)
 

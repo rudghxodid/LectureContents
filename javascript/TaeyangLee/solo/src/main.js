@@ -9,6 +9,8 @@ import VueCookie from 'vue-cookie'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'material-design-icons/iconfont/material-icons.css'
 
+
+
 Vue.use(VueCookie);
 
 Vue.config.productionTip = false

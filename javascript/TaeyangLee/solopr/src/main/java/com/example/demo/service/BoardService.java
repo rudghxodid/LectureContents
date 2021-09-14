@@ -14,6 +14,8 @@ public interface BoardService {
 
   public void remove(Integer boardNo) throws Exception;
 
+  public void fund(Board board) throws Exception;
+
   public void modify(Board board) throws Exception;
 
   public List<Board> search() throws Exception;

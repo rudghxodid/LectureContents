@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -39,24 +40,36 @@ public class JPAMemberServiceImpl implements JPAMemberService {
     }
 
     @Override
-    public boolean login(MemberRequest memberRequest) throws Exception {
+    public MemberRequest login(MemberRequest memberRequest) throws Exception {
         Optional<Member> maybeMember = memberRepository.findByUserId(memberRequest.getUserId());
 
-        if (maybeMember == null)
-        {
+        if (maybeMember == null) {
             log.info("login(): 그런 사람 없다.");
-            return false;
+            return null;
         }
 
         Member loginMember = maybeMember.get();
 
-        if (!passwordEncoder.matches(memberRequest.getPassword(), loginMember.getPassword()))
-        {
+        if (!passwordEncoder.matches(memberRequest.getPassword(), loginMember.getPassword())) {
             log.info("login(): 비밀번호 잘못 입력하였습니다.");
-            return false;
+            return null;
         }
 
-        return true;
+        Optional<MemberAuth> maybeMemberAuth =
+                memberAuthRepository.findByMemberNo(loginMember.getMemberNo());
+
+        if (maybeMemberAuth == null) {
+            log.info("auth 없음");
+            return null;
+        }
+
+        MemberAuth memberAuth = maybeMemberAuth.get();
+        MemberRequest response = new MemberRequest(
+                memberRequest.getUserId(),
+                memberRequest.getPassword(),
+                memberAuth.getAuth());
+
+        return response;
     }
 
     @Override
@@ -89,6 +102,7 @@ public class JPAMemberServiceImpl implements JPAMemberService {
         return repository.list();
     }
      */
+
 
 
     @Override

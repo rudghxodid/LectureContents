@@ -3,10 +3,11 @@ import {
     // 게시글
     FETCH_BOARD_LIST,
     FETCH_BOARD,
-    FETCH_LOGIN,
+   
     //공지사항
     FETCH_GONGZI,
-    FETCH_GONGZI_LIST
+    FETCH_GONGZI_LIST,
+    CRAWL_START
     
     
  
@@ -24,9 +25,7 @@ export default {
     },
    
    
-    [FETCH_LOGIN] (state, isLogin) {
-        state.isLogin = isLogin
-    },
+  
 
     [FETCH_GONGZI_LIST] (state, gongzis) {
         state.gongzis = gongzis;

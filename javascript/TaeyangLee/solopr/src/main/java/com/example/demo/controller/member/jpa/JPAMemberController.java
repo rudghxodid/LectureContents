@@ -3,6 +3,7 @@ package com.example.demo.controller.member.jpa;
 import com.example.demo.controller.member.request.MemberRequest;
 import com.example.demo.controller.session.UserInfo;
 import com.example.demo.entity.jpa.Member;
+import com.example.demo.entity.jpa.MemberAuth;
 import com.example.demo.service.jpa.JPAMemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -65,19 +67,14 @@ public class JPAMemberController {
 
         log.info("jpaLogin() - userId: " + memberRequest.getUserId() + ", password: " + memberRequest.getPassword());
 
-        Boolean isSuccess = service.login(memberRequest);
+        MemberRequest memberResponse = service.login(memberRequest);
 
-        if (isSuccess) {
+        if (!memberResponse.equals(null)) {
             log.info("Login Success");
             // 세션 할당
             info = new UserInfo();
-
-            info.setUserId(memberRequest.getUserId());
-
-
-
-
-
+            info.setUserId(memberResponse.getUserId());
+            info.setAuth(memberResponse.getAuth());
             log.info("Session Info: " + info);
 
             session = request.getSession();
@@ -89,6 +86,8 @@ public class JPAMemberController {
 
         // return new ResponseEntity<Boolean>(isSuccess, HttpStatus.OK);
         return new ResponseEntity<UserInfo>(info, HttpStatus.OK);
+
+
     }
 
 

@@ -51,7 +51,7 @@ export default {
                     .then(res => {
                         
                         if (res.data != "") {
-                            alert('로그인 성공! - ' + res.data.userId)
+                            alert('로그인 성공! - ' + res.data.auth)
                                 this.isLogin = true
                                 this.$store.state.session = res.data
                                 this.$cookies.set("user", res.data, '1h')

@@ -75,7 +75,7 @@ export default {
         onSubmit () {
             const { userId, password, name, address, radioGroup } = this
             const auth = radioGroup == 0 ? '개인' : '사업자'
-            this.$emit('submit', { userId, password, name, address, auth })
+            this.$emit('submit', { userId, name,password, address, auth })
         },
         
         

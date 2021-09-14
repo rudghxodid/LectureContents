@@ -20,7 +20,41 @@
                    <br><br> {{board.content}} <br><br> {{board.nowfunding}} / {{board.funding}}</td>
                 </router-link>
                 <td>
-                    <v-btn @click="goFunding">후원하기</v-btn>
+                   
+             <v-dialog v-model="loginDialog" persistent max-width="500px">
+            <template v-slot:activator="{ on }">
+                <v-btn color="primary" dark v-on="on">후원하기</v-btn>
+            </template>
+            <v-card>
+                <v-card-title>
+                    <span class="headline">
+                        후원
+                    </span>
+                </v-card-title>
+                <v-card-text>
+                    <v-container grid-list-md>
+                        <v-layout wrap>
+                            <v-flex xs12>
+                                <v-text-field label="nowfunding" v-model="board.nowfunding" required flat solo>
+                                </v-text-field>
+                            </v-flex>
+                            
+                        </v-layout>
+                    </v-container>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="teal darken-1" text @click="btnLoginClick($event)">
+                        취소
+                    </v-btn>
+                    <v-btn color="teal darken-1" text @click="btnLoginClick($event)">
+                        확인
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+          
+            
                 </td>
                               
             </tr>
@@ -54,6 +88,7 @@ export default {
                 { text: '현재모금액', value: 'nowfunding', width: "50px" },
                 { text: '', value: 'img', width: "50px"}
             ],
+            loginDialog: false
             
            
             
@@ -64,7 +99,16 @@ export default {
         boards: {
             type: Array
             
+        },
+        boardNo: {
+            type: String,
+            required: true
+        },
+         board: {
+            type: Object,
+            required: true
         }
+
     },
  
  
@@ -76,10 +120,13 @@ export default {
             this.$router.push({ name: 'BoardReadPage',
                                     params: { boardNo: board.boardNo.toString() }})
         },
-        goFunding() {
-            alert("얼마를 후원하시겠습니까?")
+        
+         onSubmit () {
+            const { nowfunding } = this
+            this.$emit('submit', { nowfunding })
         }
     }
+    
 }
 </script>
 

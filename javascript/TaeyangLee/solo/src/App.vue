@@ -12,7 +12,23 @@ import NavBarComponent from './views/NavBarComponent.vue'
 // import VuetifyAllInOneTestPage from './views/VuetifyAllInOneTestPage.vue'
 export default {
   components: { NavBarComponent },
-  name: 'App'
+  name: 'App',
+  beforeUpdate () {
+        
+        this.$store.state.session = this.$cookies.get("user")
+        if (this.$store.state.session != null) {
+            this.isLogin = true
+        }
+    },
+    mounted () {  
+       
+        this.$store.state.session = this.$cookies.get("user")
+        if (this.$store.state.session != null) {
+            this.isLogin = true
+        
+    }
+    
+    }
 }
 </script>
 

@@ -22,9 +22,9 @@ export default {
     },
     methods: {
         onSubmit (payload) {
-            const { userId, password, name, address, auth } = payload
+            const { userId, name, password, address, auth } = payload
             axios.post('http://localhost:7777/jpamember/register', {
-                        userId, password, name,address, auth
+                        userId, name, password, address, auth
                     })
                     .then(res => {
                         alert('회원가입이 완료되었습니다' + res)

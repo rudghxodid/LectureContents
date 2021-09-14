@@ -28,6 +28,9 @@ public class Member {
     @Column(length = 64, nullable = false)
     private String password;
 
+    @Column(length = 64, nullable = false)
+    private String adress;
+
     @CreationTimestamp
     private Date regDate;
 
